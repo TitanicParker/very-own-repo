@@ -46,5 +46,6 @@ const shareStatus=document.getElementById('shareStatus');
 const canonical='https://titanicparker.github.io/very-own-repo/';
 shareButton.addEventListener('click',async()=>{shareStatus.textContent='';const data={title:'Meaning Is Not Everything',text:'You are reading for meaning. This book is written to intelligibility.',url:canonical};try{if(navigator.share){await navigator.share(data);return}await navigator.clipboard.writeText(canonical);shareStatus.textContent='Copied'}catch(err){if(err&&err.name==='AbortError')return;shareStatus.textContent=''}});
 </script>
+<script src="assets/reader-marker.js"></script>
 </body>
 </html>
