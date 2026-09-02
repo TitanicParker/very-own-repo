@@ -49,11 +49,16 @@ const deck=document.getElementById('deck');
 const progress=document.getElementById('progress');
 const cue=document.getElementById('cue');
 const slides=[...document.querySelectorAll('.gulp')];
+const chapterTwo='002-enough-is-a-shape.html';
 let index=0;
-function updateIndex(){const next=Math.round(deck.scrollLeft/deck.clientWidth);index=Math.max(0,Math.min(slides.length-1,next));progress.innerHTML=`<span class="live">${index+1}</span> / ${slides.length}`;cue.textContent=index===slides.length-1?'End of Chapter One':'Swipe for more'}
+let touchStartX=null,touchStartY=null;
+function updateIndex(){const next=Math.round(deck.scrollLeft/deck.clientWidth);index=Math.max(0,Math.min(slides.length-1,next));progress.innerHTML=`<span class="live">${index+1}</span> / ${slides.length}`;cue.textContent=index===slides.length-1?'Swipe for more':'Swipe for more'}
 updateIndex();
 deck.addEventListener('scroll',()=>requestAnimationFrame(updateIndex),{passive:true});
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();deck.scrollTo({left:Math.min(slides.length-1,index+1)*deck.clientWidth,behavior:'smooth'})}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();deck.scrollTo({left:Math.max(0,index-1)*deck.clientWidth,behavior:'smooth'})}});
+deck.addEventListener('touchstart',e=>{const t=e.changedTouches[0];touchStartX=t.clientX;touchStartY=t.clientY},{passive:true});
+deck.addEventListener('touchend',e=>{if(touchStartX===null)return;const t=e.changedTouches[0];const dx=t.clientX-touchStartX,dy=t.clientY-touchStartY;if(index===slides.length-1&&dx<-52&&Math.abs(dx)>Math.abs(dy)*1.25){window.location.href=chapterTwo}touchStartX=touchStartY=null},{passive:true});
+deck.addEventListener('wheel',e=>{if(index===slides.length-1&&e.deltaX>35){window.location.href=chapterTwo}},{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();if(index===slides.length-1){window.location.href=chapterTwo}else{deck.scrollTo({left:(index+1)*deck.clientWidth,behavior:'smooth'})}}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();deck.scrollTo({left:Math.max(0,index-1)*deck.clientWidth,behavior:'smooth'})}});
 </script>
 </body>
 </html>
