@@ -261,5 +261,6 @@ updateIndex();
 deck.addEventListener('scroll',()=>requestAnimationFrame(updateIndex),{passive:true});
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();deck.scrollTo({left:Math.min(slides.length-1,index+1)*deck.clientWidth,behavior:'smooth'})}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();deck.scrollTo({left:Math.max(0,index-1)*deck.clientWidth,behavior:'smooth'})}});
 </script>
+<script src="../assets/reader-marker.js"></script>
 </body>
 </html>
