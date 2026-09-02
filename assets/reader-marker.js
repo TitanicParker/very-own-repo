@@ -82,27 +82,24 @@
     const firstInner = slides[0] && slides[0].querySelector('.inner');
     if (!firstInner) return;
 
-    let note = firstInner.querySelector('.reader-marker-note');
-    if (!note) {
-      note = document.createElement('p');
-      note.className = 'reader-marker-note';
-      firstInner.appendChild(note);
-    }
-
+    const oldNote = firstInner.querySelector('.reader-marker-note');
+    if (oldNote) oldNote.remove();
     const oldResume = utilities.querySelector('.reader-resume');
     if (oldResume) oldResume.remove();
 
     const href = markerHref(marker);
-    if (href) {
-      note.innerHTML = `You left a marker in ${escapeHtml(marker.chapter || 'the reading')}. <a href="${href}">Return to it.</a>`;
-      const resume = document.createElement('a');
-      resume.className = 'reader-resume';
-      resume.href = href;
-      resume.textContent = 'Return to marker';
-      utilities.appendChild(resume);
-    } else {
-      note.textContent = 'If you think you’ll be back here often, leave a marker when you stop. This browser will remember exactly where you were.';
-    }
+    if (!href) return;
+
+    const note = document.createElement('p');
+    note.className = 'reader-marker-note';
+    note.innerHTML = `You left a marker in ${escapeHtml(marker.chapter || 'the reading')}. <a href="${href}">Return to it.</a>`;
+    firstInner.appendChild(note);
+
+    const resume = document.createElement('a');
+    resume.className = 'reader-resume';
+    resume.href = href;
+    resume.textContent = 'Return to marker';
+    utilities.appendChild(resume);
   }
 
   function escapeHtml(value) {
