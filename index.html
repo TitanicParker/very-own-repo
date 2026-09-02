@@ -2,89 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b0a">
 <title>Welcome — Meaning Is Not Everything</title>
 <meta name="description" content="A book about something so natural that it is almost invisible: the small structures through which meaning becomes clear enough to be yours.">
 <meta property="og:title" content="Meaning Is Not Everything">
 <meta property="og:description" content="You are reading for meaning. This book is written to intelligibility.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://titanicparker.github.io/very-own-repo/">
-<meta name="twitter:card" content="summary">
 <style>
-:root{--paper:#f7f4ee;--ink:#24211d;--body:#37322c;--muted:#756e64;--rule:#d8d0c4;--accent:#566b60;--accent-soft:#e8ede9;--wide:690px}*{box-sizing:border-box}html{background:var(--paper);color:var(--ink)}body{margin:0;background:var(--paper);color:var(--body);font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.67}.wrap{width:min(calc(100% - 2.5rem),var(--wide));margin:auto;padding:4rem 0 5rem}.intro{padding:0 0 4.5rem}.intro h1{margin:0 0 2.3rem;color:var(--ink);font-size:clamp(2.55rem,6vw,4rem);line-height:1;font-weight:400;letter-spacing:-.035em}.intro p{margin:0 0 1.35rem;font-size:clamp(1.05rem,2.25vw,1.19rem);line-height:1.66}.intro .last{margin-bottom:0}.swipe-wrap{margin-top:3.4rem}.swipe-track{position:relative;height:58px;width:100%;touch-action:pan-y;user-select:none;cursor:grab;outline:none}.swipe-track:active{cursor:grabbing}.swipe-track:focus-visible{outline:1px solid var(--accent);outline-offset:8px}.swipe-label{position:absolute;top:0;left:0;font:500 .72rem/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);pointer-events:none}.swipe-line{position:absolute;left:0;right:0;bottom:13px;height:1px;background:var(--rule);pointer-events:none}.swipe-knob{position:absolute;left:0;bottom:2px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--paper);border:1px solid #9caa9f;color:var(--accent);font:500 .9rem/1 system-ui,sans-serif;transform:translateX(0);transition:transform .22s ease,border-color .22s ease,background .22s ease;will-change:transform;pointer-events:none}.swipe-track.dragging .swipe-knob{transition:none}.swipe-track.done .swipe-knob{border-color:var(--accent);background:var(--accent-soft)}.swipe-note{margin:.25rem 0 0!important;font:400 .72rem/1.35 system-ui,sans-serif!important;color:var(--muted)}.reading{padding-top:3.5rem;border-top:1px solid var(--rule)}.section-label{margin:0 0 .7rem;font:600 .67rem/1.3 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--accent)}.post{padding:2rem 0 2.15rem;border-top:1px solid var(--rule)}.post:first-of-type{border-top:0}.post .num{margin-bottom:.55rem;font:500 .67rem/1.3 system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}.post h2{margin:0;color:var(--ink);font-size:clamp(1.55rem,3.6vw,2rem);line-height:1.12;font-weight:400;letter-spacing:-.018em}.post h2 a{color:inherit;text-decoration:none}.post h2 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:var(--accent)}.post p{max-width:620px;margin:.65rem 0 0;color:#575047}.middle{margin-top:.8rem}.loading{padding:1.1rem 0 1.9rem;border-top:1px solid var(--rule);font:400 .8rem/1.55 system-ui,sans-serif;color:var(--muted)}.ending{margin-top:2.2rem;padding-top:2.2rem;border-top:1px solid #a69e92}footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;font:400 .72rem/1.45 system-ui,sans-serif;color:var(--muted)}footer .links{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}footer a,footer button{color:inherit;background:none;border:0;padding:0;font:inherit;text-decoration:underline;text-decoration-color:#b6aea3;text-underline-offset:3px;cursor:pointer}footer a:hover,footer button:hover{color:var(--accent);text-decoration-color:var(--accent)}.counter img{height:18px;display:block;opacity:.82}@media(max-width:620px){.wrap{width:min(calc(100% - 2.2rem),var(--wide));padding-top:2.8rem}.intro{padding-bottom:3.4rem}.intro h1{font-size:2.75rem;margin-bottom:1.9rem}.intro p{font-size:1.08rem;line-height:1.62;margin-bottom:1.2rem}.swipe-wrap{margin-top:2.8rem}.reading{padding-top:2.8rem}}
+:root{--bg:#090b0a;--bg2:#0d100e;--ink:#f0f3f1;--body:#c9cfcb;--muted:#7f8983;--line:rgba(220,230,223,.14);--green:#91efb9;--red:#c96b76;--wide:700px}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--body);font-family:Georgia,'Times New Roman',serif}body{background:radial-gradient(70rem 44rem at 8% -12%,rgba(145,239,185,.055),transparent 58%),radial-gradient(44rem 30rem at 105% 16%,rgba(201,107,118,.035),transparent 64%),linear-gradient(180deg,var(--bg2),var(--bg) 42rem)}.deck{display:flex;width:100%;height:100svh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}.deck::-webkit-scrollbar{display:none}.gulp{flex:0 0 100%;width:100%;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;display:flex;align-items:center;justify-content:center;padding:max(2rem,env(safe-area-inset-top)) max(1.35rem,env(safe-area-inset-right)) max(5rem,calc(env(safe-area-inset-bottom) + 4rem)) max(1.35rem,env(safe-area-inset-left))}.inner{width:min(100%,var(--wide));margin:auto}.gulp h1{margin:0 0 2rem;color:var(--ink);font-size:clamp(3rem,10vw,5.5rem);line-height:.94;font-weight:400;letter-spacing:-.05em}.gulp p{max-width:670px;margin:0 0 1.45rem;font-size:clamp(1.16rem,3vw,1.46rem);line-height:1.57}.gulp p:last-child{margin-bottom:0}.quiet{color:#b7bfba}.emphasis{color:var(--ink);font-size:clamp(1.45rem,4vw,2.05rem)!important;line-height:1.42!important}.cue{position:fixed;z-index:10;left:50%;bottom:max(1.1rem,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;align-items:center;gap:.65rem;color:var(--green);font:600 .68rem/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;text-shadow:0 0 20px rgba(145,239,185,.16);pointer-events:none}.cue::after{content:'→';font-size:1rem;font-weight:400}.progress{position:fixed;z-index:10;top:max(1.2rem,env(safe-area-inset-top));right:max(1.25rem,env(safe-area-inset-right));font:500 .66rem/1 system-ui,sans-serif;letter-spacing:.12em;color:var(--muted)}.progress .live{color:var(--green)}.wispy{position:fixed;z-index:0;inset:auto 0 0 auto;width:36vw;height:1px;background:linear-gradient(90deg,transparent,rgba(201,107,118,.22),transparent);transform:rotate(-7deg) translate(10vw,-16vh);filter:blur(.3px);pointer-events:none}.utilities{position:fixed;z-index:10;left:max(1.15rem,env(safe-area-inset-left));top:max(1.1rem,env(safe-area-inset-top));display:flex;gap:.8rem;align-items:center;font:500 .68rem/1 system-ui,sans-serif;color:var(--muted)}.utilities button,.utilities a{appearance:none;border:0;background:none;padding:0;color:inherit;font:inherit;text-decoration:none;cursor:pointer}.utilities button:hover,.utilities a:hover{color:var(--green)}.counter{position:fixed;z-index:10;right:max(1.15rem,env(safe-area-inset-right));bottom:max(1.1rem,env(safe-area-inset-bottom));opacity:.55}.counter img{display:block;height:17px;filter:grayscale(1) invert(.88) brightness(.7)}@media(max-width:640px){.gulp{align-items:flex-start;padding-top:max(5rem,calc(env(safe-area-inset-top) + 4rem))}.gulp h1{font-size:3.25rem}.gulp p{font-size:1.14rem;line-height:1.56}.utilities{font-size:.62rem}.counter{display:none}}@media(prefers-reduced-motion:reduce){.deck{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header class="intro">
-<h1>Welcome.</h1>
-<p>You may notice quite early that this book is unusually clear. That is not an accident, and it is not simply a matter of style. The book is using the thing it is trying to show you.</p>
-<p>You are reading for meaning. Of course you are. Meaning is compelling, and almost everything about reading trains your attention toward it. But this book is written to intelligibility: to the part of you that must be able to grasp what is being said before meaning can do anything at all.</p>
-<p>So we will not ask you to carry sentences whose intelligibility we have not settled ourselves. Nothing is here merely because it sounds right. Every sentence has work to do.</p>
-<p>That matters because this book is about something so natural that it is almost invisible: the small structures through which meaning becomes clear enough to be yours.</p>
-<p>You already know them.</p>
-<p class="last">You have been using them all your life.</p>
-<div class="swipe-wrap">
-<div id="swipeTrack" class="swipe-track" role="link" tabindex="0" aria-label="Swipe right to continue to Chapter One.">
-<div class="swipe-label">Swipe to continue</div>
-<div class="swipe-line" aria-hidden="true"></div>
-<div id="swipeKnob" class="swipe-knob" aria-hidden="true">→</div>
-</div>
-<p class="swipe-note">or tap the line</p>
-</div>
-</header>
+<div class="wispy" aria-hidden="true"></div>
+<div class="utilities"><button id="shareButton" type="button">Share</button><a href="book.html">Book</a><span id="shareStatus" aria-live="polite"></span></div>
+<div id="progress" class="progress"><span class="live">1</span> / 5</div>
+<div id="cue" class="cue">Swipe for more</div>
+<div class="counter" aria-label="Visitor counter"><img src="https://views-counter.vercel.app/badge?pageId=TitanicParker%2Fvery-own-repo&label=Readers&type=total&style=none&leftColor=111512&rightColor=5f8f74" alt="Reader count"></div>
 
-<main class="reading">
-<section aria-labelledby="reading-order">
-<p class="section-label" id="reading-order">Reading order</p>
-<article class="post">
-<div class="num">Chapter One · Fixed opening</div>
-<h2><a href="posts/001-meaning-is-not-everything.html">Meaning Is Not Everything</a></h2>
-<p>Something has already happened between us. You read that sentence and understood it.</p>
-</article>
-<div id="middlePosts" class="middle"><p class="loading">The developing middle will appear here as new essays are published.</p></div>
-<div class="ending">
-<article class="post">
-<div class="num">Final chapter · Fixed ending</div>
-<h2><a href="book.html#how-to-explain-this-to-a-gpt">How to Explain This to a GPT</a></h2>
-<p>You will not learn this from a GPT. By the end of the book, you will be able to teach it to one.</p>
-</article>
-<article class="post">
-<div class="num">Appendix · Always last</div>
-<h2><a href="book.html#appendix-the-54">The 54</a></h2>
-<p>The complete table of the fifty-four forms.</p>
-</article>
-</div>
-</section>
+<main id="deck" class="deck" aria-label="Introduction">
+<section class="gulp"><div class="inner"><h1>Welcome.</h1><p>You may notice quite early that this book is unusually clear. That is not an accident, and it is not simply a matter of style.</p><p class="emphasis">The book is using the thing it is trying to show you.</p></div></section>
+<section class="gulp"><div class="inner"><p>You are reading for meaning. Of course you are. Meaning is compelling, and almost everything about reading trains your attention toward it.</p><p>But this book is written to intelligibility: to the part of you that must be able to grasp what is being said before meaning can do anything at all.</p></div></section>
+<section class="gulp"><div class="inner"><p>So we will not ask you to carry sentences whose intelligibility we have not settled ourselves.</p><p class="emphasis">Nothing is here merely because it sounds right. Every sentence has work to do.</p></div></section>
+<section class="gulp"><div class="inner"><p>That matters because this book is about something so natural that it is almost invisible:</p><p class="emphasis">the small structures through which meaning becomes clear enough to be yours.</p></div></section>
+<section class="gulp" id="lastGulp"><div class="inner"><p class="emphasis">You already know them.</p><p class="emphasis">You have been using them all your life.</p><p class="quiet">One more swipe begins Chapter One.</p></div></section>
 </main>
-<footer>
-<span>A living book, published as it develops.</span>
-<span class="links"><a href="book.html">Live book</a><a href="WORKING.md">Source</a><button id="shareButton" type="button">Share</button><span id="shareStatus" aria-live="polite"></span><span class="counter" aria-label="Visitor counter"><img src="https://views-counter.vercel.app/badge?pageId=TitanicParker%2Fvery-own-repo&label=Readers&type=total&style=none&leftColor=eee9e0&rightColor=566b60" alt="Reader count"></span></span>
-</footer>
-</div>
 <script>
+const deck=document.getElementById('deck');
+const cue=document.getElementById('cue');
+const progress=document.getElementById('progress');
+const slides=[...document.querySelectorAll('.gulp')];
 const chapterOne='posts/001-meaning-is-not-everything.html';
-const swipeTrack=document.getElementById('swipeTrack');
-const swipeKnob=document.getElementById('swipeKnob');
-let dragging=false,startX=0,currentX=0,maxX=0,pointerId=null,moved=false;
-function measureSwipe(){maxX=Math.max(0,swipeTrack.clientWidth-swipeKnob.offsetWidth)}
-function setSwipe(x,animate=true){currentX=Math.max(0,Math.min(maxX,x));swipeTrack.classList.toggle('dragging',!animate);swipeKnob.style.transform=`translateX(${currentX}px)`}
-function go(){swipeTrack.classList.add('done');setSwipe(maxX,true);setTimeout(()=>{window.location.href=chapterOne},120)}
-function finishSwipe(){swipeTrack.classList.remove('dragging');if(maxX&&currentX>=maxX*.62){go()}else{setSwipe(0,true)}}
-measureSwipe();window.addEventListener('resize',()=>{measureSwipe();if(!swipeTrack.classList.contains('done'))setSwipe(0,true)});
-swipeTrack.addEventListener('pointerdown',e=>{if(e.button!==undefined&&e.button!==0)return;measureSwipe();dragging=true;moved=false;pointerId=e.pointerId;startX=e.clientX-currentX;swipeTrack.setPointerCapture?.(e.pointerId);swipeTrack.classList.add('dragging')});
-swipeTrack.addEventListener('pointermove',e=>{if(!dragging||e.pointerId!==pointerId)return;const x=e.clientX-startX;if(Math.abs(x-currentX)>4)moved=true;setSwipe(x,false)});
-function endPointer(e){if(!dragging||e.pointerId!==pointerId)return;dragging=false;pointerId=null;if(!moved){go();return}finishSwipe()}
-swipeTrack.addEventListener('pointerup',endPointer);swipeTrack.addEventListener('pointercancel',endPointer);
-swipeTrack.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
-
+let index=0;
+let touchStartX=null,touchStartY=null;
+function updateIndex(){const next=Math.round(deck.scrollLeft/deck.clientWidth);index=Math.max(0,Math.min(slides.length-1,next));progress.innerHTML=`<span class="live">${index+1}</span> / ${slides.length}`;cue.textContent=index===slides.length-1?'Swipe into Chapter One':'Swipe for more'}
+deck.addEventListener('scroll',()=>requestAnimationFrame(updateIndex),{passive:true});
+deck.addEventListener('touchstart',e=>{const t=e.changedTouches[0];touchStartX=t.clientX;touchStartY=t.clientY},{passive:true});
+deck.addEventListener('touchend',e=>{if(touchStartX===null)return;const t=e.changedTouches[0];const dx=t.clientX-touchStartX,dy=t.clientY-touchStartY;if(index===slides.length-1&&dx<-52&&Math.abs(dx)>Math.abs(dy)*1.25){window.location.href=chapterOne}touchStartX=touchStartY=null},{passive:true});
+deck.addEventListener('wheel',e=>{if(index===slides.length-1&&e.deltaX>35){window.location.href=chapterOne}},{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();if(index===slides.length-1){window.location.href=chapterOne}else{deck.scrollTo({left:(index+1)*deck.clientWidth,behavior:'smooth'})}}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();deck.scrollTo({left:Math.max(0,index-1)*deck.clientWidth,behavior:'smooth'})}});
 const shareButton=document.getElementById('shareButton');
 const shareStatus=document.getElementById('shareStatus');
 const canonical='https://titanicparker.github.io/very-own-repo/';
-shareButton.addEventListener('click',async()=>{shareStatus.textContent='';const data={title:'Meaning Is Not Everything',text:'You are reading for meaning. This book is written to intelligibility.',url:canonical};try{if(navigator.share){await navigator.share(data);return}await navigator.clipboard.writeText(canonical);shareStatus.textContent='Copied'}catch(err){if(err&&err.name==='AbortError')return;shareStatus.textContent=canonical}});
-const middle=document.getElementById('middlePosts');
-const titleFromName=name=>name.replace(/\.html$/,'').replace(/^\d+[-_]?/,'').split(/[-_]+/).filter(Boolean).map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
-(async()=>{try{const r=await fetch('https://api.github.com/repos/TitanicParker/very-own-repo/contents/posts',{headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw new Error();const files=(await r.json()).filter(x=>x.type==='file'&&/\.html$/i.test(x.name)&&x.name!=='001-meaning-is-not-everything.html').sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true}));middle.innerHTML='';if(!files.length){middle.innerHTML='<p class="loading">The middle is open. New essays will appear here as they are published.</p>';return}files.forEach((file,i)=>{const article=document.createElement('article');article.className='post';const label=file.name.match(/^(\d+)/)?.[1]||String(i+2).padStart(3,'0');article.innerHTML=`<div class="num">Essay ${label}</div><h2><a href="posts/${encodeURIComponent(file.name)}">${titleFromName(file.name)}</a></h2>`;middle.appendChild(article)})}catch(e){middle.innerHTML='<p class="loading">The developing middle is temporarily unavailable. The opening, final chapter and appendix remain accessible.</p>'}})();
+shareButton.addEventListener('click',async()=>{shareStatus.textContent='';const data={title:'Meaning Is Not Everything',text:'You are reading for meaning. This book is written to intelligibility.',url:canonical};try{if(navigator.share){await navigator.share(data);return}await navigator.clipboard.writeText(canonical);shareStatus.textContent='Copied'}catch(err){if(err&&err.name==='AbortError')return;shareStatus.textContent=''}});
 </script>
 </body>
 </html>
