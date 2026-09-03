@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b0a">
+<meta name="view-transition" content="same-origin">
+<title>The Testing Field — Very Own Repo</title>
+<meta name="description" content="Chapter Five. Fairy tales and mathematical traversals make visible how completed intelligibility leaves the next thing available.">
+<style>
+:root{--bg:#090b0a;--bg2:#0d100e;--ink:#f0f3f1;--body:#c9cfcb;--muted:#7f8983;--line:rgba(220,230,223,.14);--green:#91efb9;--red:#c96b76;--wide:730px}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--body);font-family:Georgia,'Times New Roman',serif}body{background:radial-gradient(72rem 46rem at 8% -12%,rgba(145,239,185,.055),transparent 58%),radial-gradient(46rem 32rem at 105% 16%,rgba(201,107,118,.035),transparent 64%),linear-gradient(180deg,var(--bg2),var(--bg) 42rem)}.deck{display:flex;width:100%;height:100svh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}.deck::-webkit-scrollbar{display:none}.gulp{flex:0 0 100%;width:100%;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:max(2rem,env(safe-area-inset-top)) max(1.4rem,env(safe-area-inset-right)) max(5rem,calc(env(safe-area-inset-bottom) + 4rem)) max(1.4rem,env(safe-area-inset-left));scrollbar-width:none}.gulp::-webkit-scrollbar{display:none}.inner{width:min(100%,var(--wide));margin:auto}.eyebrow{margin:0 0 1rem;color:var(--green);font:600 .68rem/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase}.gulp h1{margin:0 0 1.65rem;color:var(--ink);font-size:clamp(3rem,10vw,5.5rem);line-height:.94;font-weight:400;letter-spacing:-.05em}.gulp h2{margin:0 0 1.2rem;color:var(--ink);font-size:clamp(2rem,6vw,3.2rem);line-height:1.02;font-weight:400;letter-spacing:-.035em}.gulp p{max-width:710px;margin:0 0 1.18rem;font-size:clamp(1.08rem,2.55vw,1.31rem);line-height:1.55}.gulp p:last-child{margin-bottom:0}.emphasis{color:var(--ink);font-size:clamp(1.38rem,3.7vw,1.9rem)!important;line-height:1.4!important}.quiet{color:#aab1ad}.small{font-size:clamp(.96rem,2.2vw,1.1rem)!important;color:#b6bdb9}.pull{padding:1.2rem 0;border-top:1px solid var(--line);border-bottom:1px solid rgba(201,107,118,.18);color:var(--ink)}.story{margin:0;padding:0;list-style:none}.story li{margin:0 0 .72rem;padding-left:1rem;border-left:1px solid rgba(145,239,185,.24);color:var(--ink);font-size:clamp(.96rem,2.2vw,1.13rem);line-height:1.48}.story li:last-child{margin-bottom:0}.source{margin-top:1.3rem!important;color:var(--muted);font:500 .66rem/1.4 system-ui,sans-serif!important;letter-spacing:.04em}.sentence{color:var(--ink);font-size:clamp(1.25rem,3.35vw,1.65rem)!important;line-height:1.4!important}.now{color:var(--green);font-family:system-ui,sans-serif;font-size:.75em;letter-spacing:.05em;text-transform:uppercase}.cue{position:fixed;z-index:10;left:50%;bottom:max(1.1rem,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;align-items:center;gap:.65rem;color:var(--green);font:600 .68rem/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;text-shadow:0 0 20px rgba(145,239,185,.16);pointer-events:none}.cue::after{content:'→';font-size:1rem;font-weight:400}.progress{position:fixed;z-index:10;top:max(1.2rem,env(safe-area-inset-top));right:max(1.25rem,env(safe-area-inset-right));font:500 .66rem/1 system-ui,sans-serif;letter-spacing:.12em;color:var(--muted)}.progress .live{color:var(--green)}.utilities{position:fixed;z-index:10;left:max(1.15rem,env(safe-area-inset-left));top:max(1.1rem,env(safe-area-inset-top));display:flex;gap:.8rem;align-items:center;font:500 .68rem/1 system-ui,sans-serif;color:var(--muted)}.utilities a{color:inherit;text-decoration:none}.utilities a:hover{color:var(--green)}.wispy{position:fixed;z-index:0;inset:auto 0 0 auto;width:38vw;height:1px;background:linear-gradient(90deg,transparent,rgba(201,107,118,.22),transparent);transform:rotate(-7deg) translate(10vw,-16vh);filter:blur(.3px);pointer-events:none}@media(max-width:640px){.gulp{align-items:flex-start;padding-top:max(4.8rem,calc(env(safe-area-inset-top) + 3.8rem));padding-bottom:max(4.5rem,calc(env(safe-area-inset-bottom) + 3.5rem))}.gulp h1{font-size:3.08rem}.gulp h2{font-size:2.2rem}.gulp p{font-size:1.07rem;line-height:1.52;margin-bottom:1.03rem}.emphasis{font-size:1.42rem!important;line-height:1.4!important}.story li{font-size:.96rem;line-height:1.42;margin-bottom:.55rem}.sentence{font-size:1.28rem!important}.utilities{font-size:.62rem}}@media(max-height:700px) and (max-width:640px){.gulp{padding-top:max(4rem,calc(env(safe-area-inset-top) + 3rem))}.gulp p{font-size:1rem;line-height:1.46;margin-bottom:.85rem}.emphasis{font-size:1.3rem!important}.gulp h1{font-size:2.7rem}.story li{font-size:.9rem;line-height:1.38;margin-bottom:.43rem}}@media(prefers-reduced-motion:reduce){.deck{scroll-behavior:auto}}@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
+</style>
+</head>
+<body>
+<div class="wispy" aria-hidden="true"></div>
+<div class="utilities"><a href="004-the-whole-field.html">Chapter Four</a><a href="../book.html">Book</a></div>
+<div id="progress" class="progress"><span class="live">1</span></div>
+<div id="cue" class="cue">Swipe for more</div>
+<main id="deck" class="deck" aria-label="Chapter Five">
+
+<section class="gulp"><div class="inner">
+<p class="eyebrow">Chapter Five</p>
+<h1>The Testing Field</h1>
+<p class="emphasis">Read this as a story first.</p>
+<p>Do what you have always done.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<ul class="story">
+<li>He had watched the little red hen for many days, and he wished to catch her.</li>
+<li>One morning, the little red hen went into her garden to gather sticks for the fire.</li>
+<li>The sly fox crept from behind a bush.</li>
+<li>He carried a large sack over his shoulder.</li>
+<li>The little red hen heard a rustle in the leaves.</li>
+<li>She turned quickly, but the fox sprang forward and caught her.</li>
+<li>He popped her into the sack, tied it tightly, and set off through the wood toward his den.</li>
+<li>The little red hen was frightened, but she was clever.</li>
+</ul>
+<p class="source">Eight consecutive sentences from The Sly Fox and the Little Red Hen.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>You know what happened.</p>
+<p>A fox has been watching a hen because he wants to catch her. She goes into the garden. He approaches quietly. She hears him too late. He catches her, secures her in a sack, and begins carrying her away.</p>
+<p>Then the story gives you one more thing.</p>
+<p class="emphasis">She is frightened. But she is clever.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>That last sentence is already doing something to you.</p>
+<p>The sack is tied. The fox is on his way home. The hen has been caught.</p>
+<p>And yet <em>she was clever</em> makes another future available.</p>
+<p class="emphasis">The story can continue because what has just become intelligible changes what can become intelligible next.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>This is so ordinary that it is difficult to see.</p>
+<p>We say that stories move forward.</p>
+<p>Characters act. Things happen. One scene follows another.</p>
+<p class="emphasis">But underneath that movement, completion is continually making continuation possible.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Go back to the first sentence.</p>
+<p class="sentence">He had watched the little red hen for many days, and he wished to catch her.</p>
+<p>The watching does not remain mere watching. By the time the sentence completes, it has acquired an intention.</p>
+<p><span class="now">Now available</span><br>The fox wants the hen.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="sentence">One morning, the little red hen went into her garden to gather sticks for the fire.</p>
+<p>She is no longer simply the hen the fox wants. She is somewhere, doing something, for a reason.</p>
+<p>The completed sentence leaves a present situation available.</p>
+<p><span class="now">Now available</span><br>The hen is in the garden, occupied with gathering sticks.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="sentence">The sly fox crept from behind a bush.</p>
+<p>The intention inherited from the first sentence can now enter the hen's present situation.</p>
+<p>The fox is no longer merely watching from somewhere in the story. He has become active inside this scene.</p>
+<p><span class="now">Now available</span><br>The threat is present.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="sentence">He carried a large sack over his shoulder.</p>
+<p>A sack is a very small addition to the world.</p>
+<p>But it enters a world in which the fox already wants to catch the hen and has already approached her.</p>
+<p><span class="now">Now available</span><br>The fox is equipped for what he intends.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="sentence">The little red hen heard a rustle in the leaves.</p>
+<p>Until this moment the danger belongs to us and to the fox.</p>
+<p>Now something from that danger becomes available to the hen.</p>
+<p>Not the whole truth. Just enough.</p>
+<p><span class="now">Now available</span><br>She has something to respond to.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="sentence">She turned quickly, but the fox sprang forward and caught her.</p>
+<p>Her response becomes part of the same completion in which it fails.</p>
+<p>The fox's intention, his approach, the sack, and the rustle all acquire a new bearing because one thing has now happened.</p>
+<p><span class="now">Now available</span><br>The hen is caught.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="sentence">He popped her into the sack, tied it tightly, and set off through the wood toward his den.</p>
+<p>Three actions settle into one larger situation.</p>
+<p>Inside. Secured. Moving.</p>
+<p><span class="now">Now available</span><br>The capture has become a journey.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="sentence">The little red hen was frightened, but she was clever.</p>
+<p>Fear belongs perfectly to the world we have inherited.</p>
+<p>Cleverness does something more. It keeps another possibility alive inside the capture.</p>
+<p><span class="now">Now available</span><br>This may not be over.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Nothing in that second reading replaced the story.</p>
+<p>The fox is still a fox. The hen is still in danger. You still want to know what happens next.</p>
+<p>We have simply watched another phenomenon occurring at the same time.</p>
+<p class="emphasis pull">Something becomes enough to be inherited.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>That may be one of the deepest ordinary facts in this book.</p>
+<p>The next thing does not become available from nowhere.</p>
+<p>It becomes available in a world partly made by what has already become intelligible.</p>
+<p class="emphasis">Completion changes the field of the possible next grasp.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>This is why completed intelligibility matters beyond sentences.</p>
+<p>Learning depends on things becoming clear enough to be carried.</p>
+<p>Development depends on achieved capacities becoming conditions for new ones.</p>
+<p>Progress depends on not having to begin again from nothing.</p>
+<p class="emphasis">Understanding grows because something achieved can belong to what follows.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>We need somewhere to test that claim.</p>
+<p>Not examples manufactured for the fifty-four.</p>
+<p>Not sentences written because we already know where we want them to land.</p>
+<p>We need language with its own reasons for existing.</p>
+<p class="emphasis">So we built a testing field.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<h2>Twenty-seven fairy tales.</h2>
+<p>Fairy tales are for being told.</p>
+<p>They carry children and adults through houses, forests, bargains, dangers, repetitions, mistakes, rescues, transformations and returns.</p>
+<p>They make us ask one of the oldest questions in language.</p>
+<p class="emphasis">What happens next?</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>That innocence matters.</p>
+<p>Cinderella was not written to demonstrate a Completion Topology.</p>
+<p>Little Red Riding Hood was not designed to occupy a cell.</p>
+<p>The Three Billy Goats Gruff do not care whether a coordinate can be recovered from them.</p>
+<p class="emphasis">The stories are already busy being stories.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>And because they are stories, inheritance is everywhere.</p>
+<p>A warning matters because a danger has become available.</p>
+<p>A disguise matters because an identity has already been established.</p>
+<p>A return matters because somebody left.</p>
+<p>A rescue matters because something became wrong enough to require one.</p>
+<p class="emphasis">Narrative progress is completed intelligibility under the pressure of what happens next.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<h2>615 mathematical traversals.</h2>
+<p>The other half of the testing field could hardly feel more different.</p>
+<p>It begins with extremely basic mathematical actions and constructions, then preserves the ordered realizations by which further relations become available.</p>
+<p class="emphasis">Here the question is not what happens next. It is what can now be established.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Mathematics makes inheritance severe.</p>
+<p>A story may surprise you and remain a story.</p>
+<p>A mathematical step cannot quietly forget the conditions on which the next step depends.</p>
+<p>What has been established has to remain available with enough fidelity for another lawful realization to inherit it.</p>
+<p class="emphasis">Proof is completed intelligibility under the pressure of what follows.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>So the two sides of the testing field are not here because they secretly mean the same thing.</p>
+<p>They do not.</p>
+<p>One gives us wolves, promises, porridge, shoes, forests and kings.</p>
+<p>The other gives us constructions, relations, transformations and proof.</p>
+<p class="emphasis">Their distance is part of the test.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>A story progresses because what has happened can belong to what happens next.</p>
+<p>A proof progresses because what has been established can belong to what is established next.</p>
+<p>Learning, development and understanding show the same dependence in countless forms.</p>
+<p class="emphasis pull">The next moment becomes available because something has become enough to be inherited.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Now the fifty-four change their role.</p>
+<p>They are no longer waiting to be introduced.</p>
+<p>They are tools with which we can inspect how a completion was achieved, what structure made it sufficient, and how the achieved result remains available.</p>
+<p class="emphasis">The map is on the table. Now we walk the ground.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>And we will not begin by forcing sentences into cells.</p>
+<p>We begin with the sentence itself.</p>
+<p>What was unresolved? What changed? What made the change complete? What remained available?</p>
+<p>Only then do we ask where in the fifty-four we have landed.</p>
+<p class="emphasis">The coordinate comes after the recovery.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>The testing field can resist us.</p>
+<p>A sentence may land cleanly. It may surprise us. It may make two cells look dangerously alike. It may expose a bad example, a weak definition, or a distinction we thought we understood.</p>
+<p>Good.</p>
+<p class="emphasis">That is what a testing field is for.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Twenty-seven fairy tales.</p>
+<p>615 recoverable mathematical traversals.</p>
+<p>The whole field of fifty-four available to us.</p>
+<p class="emphasis pull">Now we find out whether the map survives the ground.</p>
+</div></section>
+
+</main>
+<script>
+const deck=document.getElementById('deck');
+const progress=document.getElementById('progress');
+const cue=document.getElementById('cue');
+const slides=[...document.querySelectorAll('.gulp')];
+let index=0;
+function updateIndex(){const next=Math.round(deck.scrollLeft/Math.max(1,deck.clientWidth));index=Math.max(0,Math.min(slides.length-1,next));progress.innerHTML=`<span class="live">${index+1}</span> / ${slides.length}`;cue.textContent=index===slides.length-1?'Continue':'Swipe for more'}
+updateIndex();
+deck.addEventListener('scroll',()=>requestAnimationFrame(updateIndex),{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();deck.scrollTo({left:Math.min(slides.length-1,index+1)*deck.clientWidth,behavior:'smooth'})}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();deck.scrollTo({left:Math.max(0,index-1)*deck.clientWidth,behavior:'smooth'})}});
+</script>
+<script src="../assets/reader-marker.js?v=20260903e"></script>
+</body>
+</html>
