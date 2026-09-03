@@ -20,7 +20,7 @@ The live repository for a serial book about completed intelligibility.
 13. [Enough Between Us](posts/013-enough-between-us.html)
 14. [Leave a Way Back](posts/014-leave-a-way-back.html)
 15. [The Slipper Survived Midnight](posts/015-the-slipper-survived-midnight.html)
-16. [The Compass Kept Its Promise](posts/016-the-compass-kept-its-promise.html)
+16. [An Appeal to Reason](posts/016-the-compass-kept-its-promise.html)
 
 The entrance offers two ways to read: install the book as a small reader on the device, with automatic place memory, or visit without installing and jump directly to any episode.
 
