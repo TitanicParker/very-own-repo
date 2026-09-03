@@ -1,4 +1,4 @@
-const CACHE = 'meaning-reader-v3';
+const CACHE = 'meaning-reader-v4';
 const CORE = [
   './',
   './index.html',
@@ -15,7 +15,8 @@ const CORE = [
   './posts/004-the-whole-field.html',
   './posts/005-the-testing-field.html',
   './posts/006-completion-makes-continuation-possible.html',
-  './posts/007-jog-your-imagination.html'
+  './posts/007-jog-your-imagination.html',
+  './posts/008-what-remains.html'
 ];
 
 self.addEventListener('install', event => {
