@@ -1,20 +1,18 @@
-# Canonical Repository Corpus
+# Testing Field
 
-**Status:** Canonical sentence corpus for this repository.
-
-This file combines the two complete sentence collections currently designated for corpus work. It preserves the source order and exact sentence wording while removing analytical columns that are not themselves part of the requested sentence corpus.
+This file contains the two complete bodies of material used to test the grammar against language that was not written for it. Source order and exact sentence wording are preserved.
 
 ## Contents
 
 - **27 fairy tales — 1,883 sentences**, in narrative order. Source sentence numbers are retained.
 - **615 mathematical traversals**, in source order. Every traversal preserves its opening claim and every derivation sentence through the final “Therefore …” restatement of the claim.
 
-## Source provenance
+## Sources
 
 - Fairy tales: `picturesque_sentence_corpus_with_fairy_tales.md`, `Fairy-Tale Sentence Corpus`.
 - Mathematics: `07_THE_615_RECOVERABLE_TRAVERSALS.md`, `Corpus`.
 
-This is a corpus file, not a reconciliation or rewrite of the sources.
+This is the testing material itself, not a reconciliation or rewrite of the sources.
 
 ---
 
