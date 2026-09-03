@@ -19,13 +19,15 @@ The live repository for a serial book about completed intelligibility.
 12. [How Much Can a Small Thing Carry?](posts/012-how-much-can-a-small-thing-carry.html)
 13. [Enough Between Us](posts/013-enough-between-us.html)
 14. [Leave a Way Back](posts/014-leave-a-way-back.html)
+15. [The Slipper Survived Midnight](posts/015-the-slipper-survived-midnight.html)
+16. [The Compass Kept Its Promise](posts/016-the-compass-kept-its-promise.html)
 
 The entrance offers two ways to read: install the book as a small reader on the device, with automatic place memory, or visit without installing and jump directly to any episode.
 
-Episode 14 is the current living edge.
+Episode 16 is the current living edge.
 
 ## Reference
 
 - [Appendix — The Primitive Grammar](APPENDIX.md)
 - [Testing Field reader](testing/) — branded access to the canonical 27 fairy tales and 615 mathematical traversals.
-- [Testing Field source](TESTING_FIELD.md) — exact canonical corpus preserved in repository form.
+- [Testing Field source](TESTING_FIELD.md) — exact canonical testing material preserved in repository form.
