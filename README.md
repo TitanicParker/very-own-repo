@@ -21,10 +21,17 @@ A serial book about the small structures through which meaning becomes clear eno
 14. [Leave a Way Back](posts/014-leave-a-way-back.html)
 15. [The Slipper Survived Midnight](posts/015-the-slipper-survived-midnight.html)
 16. [An Appeal to Reason](posts/016-the-compass-kept-its-promise.html)
+17. [Enough Has Degrees](posts/017-enough-has-degrees.html)
+18. [Two Ways to Arrive](posts/018-two-ways-to-arrive.html)
+19. [The Map Has a Rhythm](posts/019-the-map-has-a-rhythm.html)
+20. [Before the Example Exists](posts/020-before-the-example-exists.html)
+21. [The Map Outgrew the Sentence](posts/021-the-map-outgrew-the-sentence.html)
+22. [Whose Subject Is This?](posts/022-whose-subject-is-this.html)
+23. [What Would Make Us Wrong?](posts/023-what-would-make-us-wrong.html)
 
 The entrance offers two ways to read: keep the reader on this device with automatic place memory, or visit without installing and jump directly to any episode.
 
-Episode 16 is the latest episode.
+Episode 23 is the latest episode.
 
 ## Reference
 
