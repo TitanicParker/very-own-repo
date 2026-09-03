@@ -10,18 +10,18 @@
   const style = document.createElement('style');
   style.id = 'meaning-global-tools-style';
   style.textContent = `
-    #meaning-global-share,#meaning-global-count{position:fixed;z-index:10000;bottom:max(1rem,env(safe-area-inset-bottom));font:600 .66rem/1 system-ui,sans-serif;letter-spacing:.08em;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    #meaning-global-share,#meaning-global-count{position:fixed;z-index:10000;bottom:max(1rem,env(safe-area-inset-bottom));font:600 .7rem/1 system-ui,sans-serif;letter-spacing:.08em;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
     #meaning-global-share{left:max(1rem,env(safe-area-inset-left));display:flex;align-items:center;gap:.5rem}
-    #meaning-global-share button{appearance:none;border:1px solid rgba(145,239,185,.22);border-radius:999px;background:rgba(9,11,10,.72);padding:.58rem .78rem;color:#91efb9;cursor:pointer;font:inherit;letter-spacing:inherit}
+    #meaning-global-share button{appearance:none;border:1px solid rgba(145,239,185,.22);border-radius:999px;background:rgba(9,11,10,.72);padding:.62rem .82rem;color:#91efb9;cursor:pointer;font:inherit;letter-spacing:inherit}
     #meaning-global-share button:hover,#meaning-global-share button:focus-visible{border-color:rgba(145,239,185,.62);outline:none;background:rgba(145,239,185,.06)}
-    #meaning-share-status{color:#aab1ad;font-size:.62rem;letter-spacing:.04em;min-width:0}
+    #meaning-share-status{color:#aab1ad;font-size:.66rem;letter-spacing:.04em;min-width:0}
     #meaning-global-count{right:max(1rem,env(safe-area-inset-right));display:flex;align-items:center;border:1px solid rgba(220,230,223,.12);border-radius:999px;background:rgba(9,11,10,.72);padding:.34rem .46rem;overflow:hidden}
     #meaning-global-count img{display:block;height:20px;width:auto;border:0}
     .meaning-episodes-fold{margin-top:.75rem;border-top:1px solid rgba(220,230,223,.12);border-bottom:1px solid rgba(220,230,223,.12)}
-    .meaning-episodes-fold summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0;cursor:pointer;color:#f0f3f1;font:500 .78rem/1.3 system-ui,sans-serif;letter-spacing:.06em}
+    .meaning-episodes-fold summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0;cursor:pointer;color:#f0f3f1;font:500 .82rem/1.3 system-ui,sans-serif;letter-spacing:.06em}
     .meaning-episodes-fold summary::-webkit-details-marker{display:none}.meaning-episodes-fold summary::after{content:'+';color:#91efb9;font-size:1.1rem}.meaning-episodes-fold[open] summary::after{content:'−'}
     .meaning-episodes-fold .episode-list{max-height:min(54vh,34rem);overflow:auto;padding-bottom:.6rem}
-    @media(max-width:520px){#meaning-global-share{font-size:.61rem}#meaning-global-share button{padding:.52rem .66rem}#meaning-global-count{padding:.28rem .38rem}}
+    @media(max-width:520px){#meaning-global-share{font-size:.66rem}#meaning-global-share button{padding:.56rem .72rem}#meaning-global-count{padding:.28rem .38rem}}
   `;
   document.head.appendChild(style);
 
@@ -65,6 +65,13 @@
     return url.href;
   }
 
+  function currentShareText() {
+    const description = document.querySelector('meta[name="description"]');
+    return description && description.content
+      ? description.content
+      : 'A serial book about the small structures through which meaning becomes clear enough to be yours.';
+  }
+
   function copyFallback(text) {
     const area = document.createElement('textarea');
     area.value = text;
@@ -82,7 +89,7 @@
   shareButton.addEventListener('click', async () => {
     const url = currentShareUrl();
     const title = document.title || 'Meaning Is Not Everything';
-    const data = { title, text: 'Meaning Is Not Everything — a serial book about completed intelligibility.', url };
+    const data = { title, text: currentShareText(), url };
     shareStatus.textContent = '';
     try {
       if (navigator.share) { await navigator.share(data); return; }

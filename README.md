@@ -1,6 +1,6 @@
-# Very Own Repo
+# Meaning Is Not Everything
 
-The live repository for a serial book about completed intelligibility.
+A serial book about the small structures through which meaning becomes clear enough to be yours.
 
 ## Reading order
 
@@ -22,12 +22,12 @@ The live repository for a serial book about completed intelligibility.
 15. [The Slipper Survived Midnight](posts/015-the-slipper-survived-midnight.html)
 16. [An Appeal to Reason](posts/016-the-compass-kept-its-promise.html)
 
-The entrance offers two ways to read: install the book as a small reader on the device, with automatic place memory, or visit without installing and jump directly to any episode.
+The entrance offers two ways to read: keep the reader on this device with automatic place memory, or visit without installing and jump directly to any episode.
 
-Episode 16 is the current living edge.
+Episode 16 is the latest episode.
 
 ## Reference
 
-- [Appendix — The Primitive Grammar](APPENDIX.md)
-- [Testing Field reader](testing/) — branded access to the canonical 27 fairy tales and 615 mathematical traversals.
-- [Testing Field source](TESTING_FIELD.md) — exact canonical testing material preserved in repository form.
+- [Appendix — The Fifteen Core Definitions](appendix.html) — the exact reference sheet for the formal vocabulary.
+- [Testing Field](testing/) — optional material behind Episode Five: 27 fairy tales and 615 mathematical examples.
+- [Testing Field source](TESTING_FIELD.md) — the preserved source material for readers who want to inspect it directly.
