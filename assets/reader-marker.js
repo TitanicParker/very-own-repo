@@ -4,6 +4,7 @@
   const slides = deck ? [...deck.querySelectorAll('.gulp')] : [];
   const utilities = document.querySelector('.utilities');
   const cue = document.getElementById('cue') || document.querySelector('.cue');
+  const progress = document.getElementById('progress') || document.querySelector('.progress');
   if (!deck || !slides.length || !utilities) return;
   if (document.documentElement.dataset.readerMarkerReady === 'true') return;
   document.documentElement.dataset.readerMarkerReady = 'true';
@@ -58,6 +59,11 @@
     const slide = slides[currentPlace()];
     if (!slide) return true;
     return slide.scrollHeight <= slide.clientHeight + 3 || slide.scrollTop + slide.clientHeight >= slide.scrollHeight - 3;
+  }
+
+  function updateProgress() {
+    if (!progress) return;
+    progress.innerHTML = `<span class="live">${currentPlace() + 1}</span> / ${slides.length}`;
   }
 
   function chapterLabel() {
@@ -206,12 +212,14 @@
       requestAnimationFrame(() => {
         settle();
         renderResume();
+        updateProgress();
         updateContinuationCue();
       });
     });
     setTimeout(() => {
       settle();
       renderResume();
+      updateProgress();
       updateContinuationCue();
     }, 120);
   }
@@ -264,17 +272,20 @@
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       if (requestedPlace() !== null) restoreFromHash();
+      updateProgress();
       updateContinuationCue();
     }, 80);
   });
   window.addEventListener('pageshow', () => {
     restoreFromHash();
+    updateProgress();
     updateContinuationCue();
   });
   window.addEventListener('hashchange', restoreFromHash);
 
   deck.addEventListener('scroll', () => requestAnimationFrame(() => {
     renderResume();
+    updateProgress();
     updateContinuationCue();
   }), { passive: true });
 
@@ -307,6 +318,15 @@
     }
   }, { passive: true });
 
+  document.addEventListener('keydown', event => {
+    if (!atLastPlace() || !nextHref) return;
+    if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      goNext();
+    }
+  }, true);
+
   if (cue) {
     cue.addEventListener('click', () => {
       if (atLastPlace() && nextHref) goNext();
@@ -323,6 +343,7 @@
   makeButton();
   restoreFromHash();
   renderResume();
+  updateProgress();
   updateContinuationCue();
   discoverNext();
 })();
