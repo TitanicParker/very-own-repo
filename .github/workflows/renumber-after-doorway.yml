@@ -1,0 +1,61 @@
+name: Renumber after doorway insertion
+
+on:
+  push:
+    paths:
+      - '.github/workflows/renumber-after-doorway.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  renumber:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update navigation and chapter labels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('assets/reader-marker.js')
+          s = p.read_text()
+          s = s.replace("'002-enough-is-a-shape.html': '003-enough-has-a-direction.html',", "'002-enough-is-a-shape.html': '003-the-whole-world-in-a-doorway.html',\n    '003-the-whole-world-in-a-doorway.html': '003-enough-has-a-direction.html',")
+          p.write_text(s)
+
+          p = Path('posts/003-enough-has-a-direction.html')
+          s = p.read_text()
+          s = s.replace('Chapter Three.', 'Chapter Four.')
+          s = s.replace('aria-label="Chapter Three"', 'aria-label="Chapter Four"')
+          s = s.replace('<p class="eyebrow">Chapter Three</p>', '<p class="eyebrow">Chapter Four</p>')
+          s = s.replace('<a href="002-enough-is-a-shape.html">Chapter Two</a>', '<a href="003-the-whole-world-in-a-doorway.html">Chapter Three</a>')
+          p.write_text(s)
+
+          p = Path('posts/004-what-survives-the-grasp.html')
+          s = p.read_text()
+          s = s.replace('Chapter Four.', 'Chapter Five.')
+          s = s.replace('aria-label="Chapter Four"', 'aria-label="Chapter Five"')
+          s = s.replace('<p class="eyebrow">Chapter Four</p>', '<p class="eyebrow">Chapter Five</p>')
+          s = s.replace('<a href="003-enough-has-a-direction.html">Chapter Three</a>', '<a href="003-enough-has-a-direction.html">Chapter Four</a>')
+          p.write_text(s)
+
+          p = Path('posts/005-enough-has-to-survive-contact.html')
+          s = p.read_text()
+          s = s.replace('Chapter Five.', 'Chapter Six.')
+          s = s.replace('aria-label="Chapter Five"', 'aria-label="Chapter Six"')
+          s = s.replace('<p class="eyebrow">Chapter Five</p>', '<p class="eyebrow">Chapter Six</p>')
+          s = s.replace('<a href="004-what-survives-the-grasp.html">Chapter Four</a>', '<a href="004-what-survives-the-grasp.html">Chapter Five</a>')
+          p.write_text(s)
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/reader-marker.js posts/003-enough-has-a-direction.html posts/004-what-survives-the-grasp.html posts/005-enough-has-to-survive-contact.html
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Route reading through new Chapter Three"
+          git push origin main
