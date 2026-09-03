@@ -3,11 +3,24 @@
   const deck = document.getElementById('deck');
   const slides = deck ? [...deck.querySelectorAll('.gulp')] : [];
   const utilities = document.querySelector('.utilities');
+  const cue = document.getElementById('cue') || document.querySelector('.cue');
   if (!deck || !slides.length || !utilities) return;
   if (document.documentElement.dataset.readerMarkerReady === 'true') return;
   document.documentElement.dataset.readerMarkerReady = 'true';
 
   const isHome = /\/very-own-repo\/?$/.test(location.pathname) || /\/index\.html$/.test(location.pathname);
+  const currentFile = location.pathname.split('/').pop() || 'index.html';
+  const knownNext = {
+    '001-meaning-is-not-everything.html': '002-enough-is-a-shape.html',
+    '002-enough-is-a-shape.html': '003-enough-has-a-direction.html',
+    '003-enough-has-a-direction.html': '004-what-survives-the-grasp.html',
+    '004-what-survives-the-grasp.html': '005-enough-has-to-survive-contact.html'
+  };
+  let nextHref = isHome ? 'posts/001-meaning-is-not-everything.html' : (knownNext[currentFile] || null);
+  let wheelCarry = 0;
+  let wheelReset = null;
+  let touchStartX = null;
+  let touchStartY = null;
 
   function normalizePath(path) {
     try {
@@ -35,6 +48,16 @@
 
   function currentPlace() {
     return Math.max(0, Math.min(slides.length - 1, Math.round(deck.scrollLeft / Math.max(1, deck.clientWidth))));
+  }
+
+  function atLastPlace() {
+    return currentPlace() === slides.length - 1;
+  }
+
+  function activeSlideAtBottom() {
+    const slide = slides[currentPlace()];
+    if (!slide) return true;
+    return slide.scrollHeight <= slide.clientHeight + 3 || slide.scrollTop + slide.clientHeight >= slide.scrollHeight - 3;
   }
 
   function chapterLabel() {
@@ -110,6 +133,8 @@
       .reader-at-marker{color:var(--muted,#7f8983)!important;white-space:nowrap}
       .reader-marker-note{margin-top:2rem!important;padding-top:1rem;border-top:1px solid var(--line,rgba(220,230,223,.14));color:var(--muted,#7f8983);font-family:system-ui,sans-serif!important;font-size:clamp(.78rem,1.8vw,.9rem)!important;line-height:1.5!important;letter-spacing:.01em}
       .reader-marker-note a{color:var(--green,#91efb9);text-decoration:none;white-space:nowrap}
+      .cue.reader-can-continue{pointer-events:auto!important;cursor:pointer;text-decoration:none;user-select:none}
+      .cue.reader-can-continue:hover,.cue.reader-can-continue:focus-visible{filter:brightness(1.2);outline:none}
     `;
     document.head.appendChild(style);
   }
@@ -181,26 +206,123 @@
       requestAnimationFrame(() => {
         settle();
         renderResume();
+        updateContinuationCue();
       });
     });
     setTimeout(() => {
       settle();
       renderResume();
+      updateContinuationCue();
     }, 120);
+  }
+
+  function goNext() {
+    if (!nextHref) return;
+    location.href = nextHref;
+  }
+
+  function updateContinuationCue() {
+    if (!cue) return;
+    const last = atLastPlace();
+    cue.classList.toggle('reader-can-continue', Boolean(last && nextHref));
+    if (last && nextHref) {
+      cue.textContent = 'Continue';
+      cue.setAttribute('role', 'link');
+      cue.setAttribute('tabindex', '0');
+      cue.setAttribute('aria-label', 'Continue to the next chapter');
+    } else {
+      cue.textContent = last ? 'Living edge' : 'Swipe for more';
+      cue.removeAttribute('role');
+      cue.removeAttribute('tabindex');
+      cue.removeAttribute('aria-label');
+    }
+  }
+
+  async function discoverNext() {
+    if (nextHref || isHome || !/^[0-9]+.*\.html$/i.test(currentFile)) {
+      updateContinuationCue();
+      return;
+    }
+    try {
+      const response = await fetch('https://api.github.com/repos/TitanicParker/very-own-repo/contents/posts', {
+        headers: { Accept: 'application/vnd.github+json' }
+      });
+      if (!response.ok) return;
+      const files = (await response.json())
+        .filter(item => item.type === 'file' && /^[0-9]+.*\.html$/i.test(item.name))
+        .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+      const here = files.findIndex(item => item.name === currentFile);
+      if (here >= 0 && here < files.length - 1) nextHref = files[here + 1].name;
+    } catch (_) {
+      // The page remains readable even if discovery is unavailable.
+    }
+    updateContinuationCue();
   }
 
   let resizeTimer = null;
   window.addEventListener('resize', () => {
-    if (requestedPlace() === null) return;
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(restoreFromHash, 80);
+    resizeTimer = setTimeout(() => {
+      if (requestedPlace() !== null) restoreFromHash();
+      updateContinuationCue();
+    }, 80);
   });
-  window.addEventListener('pageshow', restoreFromHash);
+  window.addEventListener('pageshow', () => {
+    restoreFromHash();
+    updateContinuationCue();
+  });
   window.addEventListener('hashchange', restoreFromHash);
-  deck.addEventListener('scroll', () => requestAnimationFrame(() => renderResume()), { passive: true });
+
+  deck.addEventListener('scroll', () => requestAnimationFrame(() => {
+    renderResume();
+    updateContinuationCue();
+  }), { passive: true });
+
+  deck.addEventListener('touchstart', event => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive: true });
+
+  deck.addEventListener('touchend', event => {
+    if (touchStartX === null) return;
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - touchStartX;
+    const dy = touch.clientY - touchStartY;
+    if (atLastPlace() && nextHref && dx < -46 && Math.abs(dx) > Math.abs(dy) * 1.15) goNext();
+    touchStartX = null;
+    touchStartY = null;
+  }, { passive: true });
+
+  deck.addEventListener('wheel', event => {
+    if (!atLastPlace() || !nextHref || !activeSlideAtBottom()) return;
+    const forward = Math.max(event.deltaX, event.deltaY);
+    if (forward <= 0) return;
+    wheelCarry += forward;
+    clearTimeout(wheelReset);
+    wheelReset = setTimeout(() => { wheelCarry = 0; }, 450);
+    if (wheelCarry > 110) {
+      wheelCarry = 0;
+      goNext();
+    }
+  }, { passive: true });
+
+  if (cue) {
+    cue.addEventListener('click', () => {
+      if (atLastPlace() && nextHref) goNext();
+    });
+    cue.addEventListener('keydown', event => {
+      if ((event.key === 'Enter' || event.key === ' ') && atLastPlace() && nextHref) {
+        event.preventDefault();
+        goNext();
+      }
+    });
+  }
 
   addStyles();
   makeButton();
   restoreFromHash();
   renderResume();
+  updateContinuationCue();
+  discoverNext();
 })();
