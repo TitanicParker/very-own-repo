@@ -13,10 +13,16 @@ The live repository for a serial book about completed intelligibility.
 6. [Completion Makes Continuation Possible](posts/006-completion-makes-continuation-possible.html)
 7. [Jog Your Imagination](posts/007-jog-your-imagination.html)
 8. [What Remains](posts/008-what-remains.html)
+9. [The Sentence Is Not the Landing](posts/009-the-sentence-is-not-the-landing.html)
+10. [Completion Can Reopen](posts/010-completion-can-reopen.html)
+11. [A Correction Is Not a Rewind](posts/011-a-correction-is-not-a-rewind.html)
+12. [How Much Can a Small Thing Carry?](posts/012-how-much-can-a-small-thing-carry.html)
+13. [Enough Between Us](posts/013-enough-between-us.html)
+14. [Leave a Way Back](posts/014-leave-a-way-back.html)
 
 The entrance offers two ways to read: install the book as a small reader on the device, with automatic place memory, or visit without installing and jump directly to any episode.
 
-Episode 8 is the current living edge.
+Episode 14 is the current living edge.
 
 ## Reference
 
