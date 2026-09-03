@@ -54,7 +54,7 @@ The claim of this book is that those ways are not limitless.
 
 Meaning may be. The things that can be thought, noticed, imagined, remembered, invented, desired, feared, discovered and communicated appear inexhaustible. But the forms by which an intelligibility becomes graspable are astonishingly small in number. Under the immense variety of meaning there is a tiny recurrent grammar. It does not tell us what to think. It does not tell us what anything means. It does not reduce one person’s realization to another’s. It tells us something much more modest and, once seen, much stranger: the ways in which meaning can become enough for us have a structure.
 
-Later in this book I am going to ask you to entertain a claim that initially sounds almost absurd in its simplicity. An intelligibility can only do one of six fundamental kinds of work. The way that work becomes enough has only three fundamental orientations. And what is realized through it can remain available in only three fundamental ways. Six by three by three. Fifty-four.
+Later in this book I am going to ask you to entertain a claim that initially sounds almost absurd in its simplicity. An intelligibility can only do one of six Transformation Patterns. The way that work becomes enough has only three Completion Topologies. And what is realized through it can remain available in only three Persistence Modes. Six by three by three. Fifty-four.
 
 The immediate response should probably be disbelief of a particular sort: not “that sounds impossibly complicated,” but “surely somebody would have noticed.”
 
@@ -172,15 +172,15 @@ When people first see the structure, it is natural to read a coordinate as three
 
 Take a coordinate such as:
 
-**Distinction × Toward × Is**
+**Differentiation × Focal × Standing**
 
 The temptation is to say:
 
-Distinction means something becomes distinct.
+Differentiation means a previously unavailable or non-operative difference becomes determinate enough to matter.
 
-Toward means there is one privileged locus.
+Focal means completion gathers around one privileged locus, and that locus is constitutive of sufficiency.
 
-Is means the determination stands.
+Standing means the achieved determination itself remains available as the completed result.
 
 Therefore the answer must be something like:
 
@@ -196,9 +196,9 @@ But the three dimensions are not three stickers.
 
 They determine one another.
 
-There is no completed Distinction sitting there waiting for Toward to select one of its results.
+There is no completed Differentiation sitting there waiting for Focal to select one of its results.
 
-There is no Toward operation that occurs first and then gets preserved by Is.
+There is no Focal operation that occurs first and then gets preserved by Standing.
 
 There are not three little mechanisms working in sequence.
 
@@ -236,25 +236,25 @@ The first dimension asks what kind of unresolvedness is being answered.
 
 There are six.
 
-### Distinction
+### Differentiation
 
 A difference that was unavailable, flattened, conflated or unable to matter becomes determinate enough to matter.
 
 Something can now be told apart.
 
-### Expansion
+### Opening
 
 Availability, reach, continuation, access or possibility becomes greater than it was.
 
 Something can now open, continue, reach or become available where it could not before.
 
-### Relation
+### Relating
 
 A bearing, dependency, correspondence, ordering, reciprocity or mutual determination becomes constitutive of the situation.
 
 Something now holds through how it bears upon something else.
 
-### Correction
+### Repair
 
 An organization fails relative to some operative criterion and is changed so that the misfit or fault no longer governs the result.
 
@@ -266,7 +266,7 @@ Separate parts acquire determinate roles through organization into a whole and t
 
 The parts now belong together in a way they did not before.
 
-### Rest
+### Settlement
 
 A live demand for further uptake, choice, explanation, completion, adjudication or continuation is discharged.
 
@@ -292,7 +292,7 @@ What makes that work complete?
 
 There are three possibilities.
 
-### Toward
+### Focal
 
 Completion gathers around one privileged locus.
 
@@ -300,7 +300,7 @@ There is something around which the intelligibility lands: an item, a source, a 
 
 That privileged locus is not incidental. It is why this completion counts as complete.
 
-### Across
+### Distributed
 
 Completion requires a constitutive plurality, span, sequence, range, reciprocal field, set of cases or system.
 
@@ -308,7 +308,7 @@ No single locus is sufficient by itself.
 
 The completion exists across what is being held together.
 
-### Away
+### Release
 
 Something that previously governed the situation loses its determining force.
 
@@ -332,19 +332,19 @@ Once the intelligibility is achieved, what kind of achieved thing is it?
 
 Again there are three possibilities.
 
-### Is
+### Standing
 
 The achieved determination itself is what remains available.
 
 Something now simply stands.
 
-### With
+### Bearing
 
 The achieved result remains what it is through some constitutive bearing: a dependency, contrast, condition, source, proportion, frame, support or mutual determination.
 
 Take away the bearing and you no longer have the same completed intelligibility.
 
-### Does
+### Efficacy
 
 The achieved result remains as an accomplished capacity, operative effect, changed continuation, rule, function or consequential difference in what can happen.
 
@@ -631,7 +631,7 @@ Now give it one coordinate.
 
 Try:
 
-**Distinction × Toward × Is**
+**Differentiation × Focal × Standing**
 
 Or:
 
@@ -745,9 +745,9 @@ As usual.
 
 The 54 coordinates are generated by three dimensions:
 
-- **Work-family:** Distinction, Expansion, Relation, Correction, Integration, Rest
-- **Orientation:** Toward, Across, Away
-- **Survivor-mode:** Is, With, Does
+- **Work-family:** Differentiation, Opening, Relating, Repair, Integration, Settlement
+- **Orientation:** Focal, Distributed, Release
+- **Survivor-mode:** Standing, Bearing, Efficacy
 
 **6 × 3 × 3 = 54.**
 
