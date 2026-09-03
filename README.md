@@ -20,4 +20,5 @@ Episode 7 is the current living edge.
 ## Reference
 
 - [Appendix — The Primitive Grammar](APPENDIX.md)
-- [Testing Field](TESTING_FIELD.md) — 27 fairy tales and 615 mathematical traversals.
+- [Testing Field reader](testing/) — branded access to the canonical 27 fairy tales and 615 mathematical traversals.
+- [Testing Field source](TESTING_FIELD.md) — exact canonical corpus preserved in repository form.
