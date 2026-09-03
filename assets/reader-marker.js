@@ -39,7 +39,14 @@
     '013-enough-between-us.html': { episode: 13, title: 'Enough Between Us' },
     '014-leave-a-way-back.html': { episode: 14, title: 'Leave a Way Back' },
     '015-the-slipper-survived-midnight.html': { episode: 15, title: 'The Slipper Survived Midnight' },
-    '016-the-compass-kept-its-promise.html': { episode: 16, title: 'An Appeal to Reason' }
+    '016-the-compass-kept-its-promise.html': { episode: 16, title: 'An Appeal to Reason' },
+    '017-enough-has-degrees.html': { episode: 17, title: 'Enough Has Degrees' },
+    '018-two-ways-to-arrive.html': { episode: 18, title: 'Two Ways to Arrive' },
+    '019-the-map-has-a-rhythm.html': { episode: 19, title: 'The Map Has a Rhythm' },
+    '020-before-the-example-exists.html': { episode: 20, title: 'Before the Example Exists' },
+    '021-the-map-outgrew-the-sentence.html': { episode: 21, title: 'The Map Outgrew the Sentence' },
+    '022-whose-subject-is-this.html': { episode: 22, title: 'Whose Subject Is This?' },
+    '023-what-would-make-us-wrong.html': { episode: 23, title: 'What Would Make Us Wrong?' }
   };
   const knownNext = {
     '001-meaning-is-not-everything.html': '002-enough-is-a-shape.html',
@@ -56,7 +63,14 @@
     '012-how-much-can-a-small-thing-carry.html': '013-enough-between-us.html',
     '013-enough-between-us.html': '014-leave-a-way-back.html',
     '014-leave-a-way-back.html': '015-the-slipper-survived-midnight.html',
-    '015-the-slipper-survived-midnight.html': '016-the-compass-kept-its-promise.html'
+    '015-the-slipper-survived-midnight.html': '016-the-compass-kept-its-promise.html',
+    '016-the-compass-kept-its-promise.html': '017-enough-has-degrees.html',
+    '017-enough-has-degrees.html': '018-two-ways-to-arrive.html',
+    '018-two-ways-to-arrive.html': '019-the-map-has-a-rhythm.html',
+    '019-the-map-has-a-rhythm.html': '020-before-the-example-exists.html',
+    '020-before-the-example-exists.html': '021-the-map-outgrew-the-sentence.html',
+    '021-the-map-outgrew-the-sentence.html': '022-whose-subject-is-this.html',
+    '022-whose-subject-is-this.html': '023-what-would-make-us-wrong.html'
   };
   const meta = episodes[currentFile] || { episode: 0, title: 'Introduction' };
   const nextHref = isHome ? 'posts/001-meaning-is-not-everything.html' : (knownNext[currentFile] || null);
