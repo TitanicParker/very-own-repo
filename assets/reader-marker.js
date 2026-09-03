@@ -13,7 +13,8 @@
   const currentFile = location.pathname.split('/').pop() || 'index.html';
   const knownNext = {
     '001-meaning-is-not-everything.html': '002-enough-is-a-shape.html',
-    '002-enough-is-a-shape.html': '003-enough-has-a-direction.html',
+    '002-enough-is-a-shape.html': '003-the-whole-world-in-a-doorway.html',
+    '003-the-whole-world-in-a-doorway.html': '003-enough-has-a-direction.html',
     '003-enough-has-a-direction.html': '004-what-survives-the-grasp.html',
     '004-what-survives-the-grasp.html': '005-enough-has-to-survive-contact.html'
   };
