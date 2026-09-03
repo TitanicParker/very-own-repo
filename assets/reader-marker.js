@@ -39,6 +39,10 @@
     document.querySelectorAll('.eyebrow').forEach(node => {
       node.textContent = node.textContent.replace(/^Chapter\b/i, 'Episode');
     });
+    document.querySelectorAll('[aria-label]').forEach(node => {
+      const value = node.getAttribute('aria-label');
+      if (value) node.setAttribute('aria-label', value.replace(/^Chapter\b/i, 'Episode'));
+    });
     if (utilities) {
       utilities.querySelectorAll('a').forEach(link => {
         link.textContent = link.textContent.replace(/^Chapter\b/i, 'Episode');
@@ -52,7 +56,9 @@
     return Math.max(0, Math.min(slides.length - 1, Math.round(deck.scrollLeft / Math.max(1, deck.clientWidth))));
   }
 
-  function atLastPlace() { return currentPlace() === slides.length - 1; }
+  function atLastPlace() {
+    return currentPlace() === slides.length - 1;
+  }
 
   function activeSlideAtBottom() {
     const slide = slides[currentPlace()];
@@ -61,7 +67,8 @@
   }
 
   function updateProgress() {
-    if (progress) progress.innerHTML = `<span class="live">${currentPlace() + 1}</span> / ${slides.length}`;
+    if (!progress) return;
+    progress.innerHTML = `<span class="live">${currentPlace() + 1}</span> / ${slides.length}`;
   }
 
   function migrateLegacy() {
@@ -73,14 +80,20 @@
       if (!old || typeof old.path !== 'string' || !Number.isInteger(old.place)) return;
       const file = old.path.split('/').pop() || '';
       const oldMeta = episodes[file] || { episode: 0, title: old.chapter || 'Introduction' };
-      localStorage.setItem(PROGRESS_KEY, JSON.stringify({path:old.path,place:Math.max(0,old.place),episode:oldMeta.episode,title:oldMeta.title,total:null,updatedAt:old.savedAt||new Date().toISOString()}));
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify({
+        path: old.path,
+        place: Math.max(0, old.place),
+        episode: oldMeta.episode,
+        title: oldMeta.title,
+        total: null,
+        updatedAt: old.savedAt || new Date().toISOString()
+      }));
       localStorage.removeItem(LEGACY_KEY);
     } catch (_) {}
   }
 
   function saveCurrent() {
-    const entrance = document.getElementById('gate');
-    if (isHome && entrance && !entrance.hidden) return;
+    if (isHome) return;
     try {
       localStorage.setItem(PROGRESS_KEY, JSON.stringify({
         path: location.pathname,
@@ -93,13 +106,17 @@
     } catch (_) {}
   }
 
-  function queueSave() { clearTimeout(saveTimer); saveTimer = setTimeout(saveCurrent, 90); }
+  function queueSave() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveCurrent, 90);
+  }
 
   function requestedPlace() {
     const params = new URLSearchParams(location.hash.replace(/^#/, ''));
     const raw = params.get('place');
     if (!raw || !/^\d+$/.test(raw)) return null;
-    return Math.max(0, Math.min(slides.length - 1, Number(raw) - 1));
+    const requested = Number(raw) - 1;
+    return Math.max(0, Math.min(slides.length - 1, requested));
   }
 
   function restoreFromHash() {
@@ -107,11 +124,23 @@
     if (place === null) return;
     const settle = () => { deck.scrollLeft = place * Math.max(1, deck.clientWidth); };
     settle();
-    requestAnimationFrame(() => requestAnimationFrame(() => { settle(); updateProgress(); updateContinuationCue(); queueSave(); }));
-    setTimeout(() => { settle(); updateProgress(); updateContinuationCue(); queueSave(); }, 120);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      settle();
+      updateProgress();
+      updateContinuationCue();
+      queueSave();
+    }));
+    setTimeout(() => {
+      settle();
+      updateProgress();
+      updateContinuationCue();
+      queueSave();
+    }, 120);
   }
 
-  function goNext() { if (nextHref) location.href = nextHref; }
+  function goNext() {
+    if (nextHref) location.href = nextHref;
+  }
 
   function updateContinuationCue() {
     if (!cue) return;
@@ -124,7 +153,9 @@
       cue.setAttribute('aria-label', 'Continue to the next episode');
     } else {
       cue.textContent = last ? 'Living edge' : 'Swipe for more';
-      cue.removeAttribute('role'); cue.removeAttribute('tabindex'); cue.removeAttribute('aria-label');
+      cue.removeAttribute('role');
+      cue.removeAttribute('tabindex');
+      cue.removeAttribute('aria-label');
     }
   }
 
@@ -132,21 +163,81 @@
     if (document.getElementById('reader-progress-styles')) return;
     const style = document.createElement('style');
     style.id = 'reader-progress-styles';
-    style.textContent = '.cue.reader-can-continue{pointer-events:auto!important;cursor:pointer;text-decoration:none;user-select:none}.cue.reader-can-continue:hover,.cue.reader-can-continue:focus-visible{filter:brightness(1.2);outline:none}';
+    style.textContent = `
+      .cue.reader-can-continue{pointer-events:auto!important;cursor:pointer;text-decoration:none;user-select:none}
+      .cue.reader-can-continue:hover,.cue.reader-can-continue:focus-visible{filter:brightness(1.2);outline:none}
+    `;
     document.head.appendChild(style);
   }
 
-  deck.addEventListener('scroll', () => requestAnimationFrame(() => { updateProgress(); updateContinuationCue(); queueSave(); }), { passive: true });
-  deck.addEventListener('touchstart', event => { const touch=event.changedTouches[0]; touchStartX=touch.clientX; touchStartY=touch.clientY; }, { passive: true });
-  deck.addEventListener('touchend', event => { if(touchStartX===null)return; const touch=event.changedTouches[0]; const dx=touch.clientX-touchStartX,dy=touch.clientY-touchStartY; if(atLastPlace()&&nextHref&&dx<-46&&Math.abs(dx)>Math.abs(dy)*1.15)goNext(); touchStartX=null; touchStartY=null; }, { passive: true });
-  deck.addEventListener('wheel', event => { if(!atLastPlace()||!nextHref||!activeSlideAtBottom())return; const forward=Math.max(event.deltaX,event.deltaY); if(forward<=0)return; wheelCarry+=forward; clearTimeout(wheelReset); wheelReset=setTimeout(()=>{wheelCarry=0},450); if(wheelCarry>110){wheelCarry=0;goNext();} }, { passive: true });
-  document.addEventListener('keydown', event => { if(!atLastPlace()||!nextHref)return; if(event.key==='ArrowRight'||event.key==='PageDown'||event.key===' '){event.preventDefault();event.stopImmediatePropagation();goNext();} }, true);
-  if(cue){cue.addEventListener('click',()=>{if(atLastPlace()&&nextHref)goNext()});cue.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&atLastPlace()&&nextHref){event.preventDefault();goNext();}})}
-  window.addEventListener('resize',()=>{if(requestedPlace()!==null)restoreFromHash();updateProgress();updateContinuationCue()});
-  window.addEventListener('pageshow',()=>{restoreFromHash();updateProgress();updateContinuationCue();queueSave()});
-  window.addEventListener('hashchange',restoreFromHash);
-  window.addEventListener('pagehide',saveCurrent);
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveCurrent()});
+  deck.addEventListener('scroll', () => requestAnimationFrame(() => {
+    updateProgress();
+    updateContinuationCue();
+    queueSave();
+  }), { passive: true });
+
+  deck.addEventListener('touchstart', event => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive: true });
+
+  deck.addEventListener('touchend', event => {
+    if (touchStartX === null) return;
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - touchStartX;
+    const dy = touch.clientY - touchStartY;
+    if (atLastPlace() && nextHref && dx < -46 && Math.abs(dx) > Math.abs(dy) * 1.15) goNext();
+    touchStartX = null;
+    touchStartY = null;
+  }, { passive: true });
+
+  deck.addEventListener('wheel', event => {
+    if (!atLastPlace() || !nextHref || !activeSlideAtBottom()) return;
+    const forward = Math.max(event.deltaX, event.deltaY);
+    if (forward <= 0) return;
+    wheelCarry += forward;
+    clearTimeout(wheelReset);
+    wheelReset = setTimeout(() => { wheelCarry = 0; }, 450);
+    if (wheelCarry > 110) {
+      wheelCarry = 0;
+      goNext();
+    }
+  }, { passive: true });
+
+  document.addEventListener('keydown', event => {
+    if (!atLastPlace() || !nextHref) return;
+    if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      goNext();
+    }
+  }, true);
+
+  if (cue) {
+    cue.addEventListener('click', () => { if (atLastPlace() && nextHref) goNext(); });
+    cue.addEventListener('keydown', event => {
+      if ((event.key === 'Enter' || event.key === ' ') && atLastPlace() && nextHref) {
+        event.preventDefault();
+        goNext();
+      }
+    });
+  }
+
+  window.addEventListener('resize', () => {
+    if (requestedPlace() !== null) restoreFromHash();
+    updateProgress();
+    updateContinuationCue();
+  });
+  window.addEventListener('pageshow', () => {
+    restoreFromHash();
+    updateProgress();
+    updateContinuationCue();
+    queueSave();
+  });
+  window.addEventListener('hashchange', restoreFromHash);
+  window.addEventListener('pagehide', saveCurrent);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveCurrent(); });
 
   if ('serviceWorker' in navigator) {
     const worker = new URL(isHome ? 'service-worker.js' : '../service-worker.js', location.href);
