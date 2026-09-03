@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Meaning Is Not Everything</title>
+  <desc id="desc">A calm dark social card for the serial book Meaning Is Not Everything.</desc>
+  <rect width="1200" height="630" fill="#090b0a"/>
+  <circle cx="1048" cy="106" r="15" fill="#91efb9"/>
+  <path d="M88 472H1112" stroke="#252c28" stroke-width="2"/>
+  <text x="88" y="178" fill="#91efb9" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" letter-spacing="5">A SERIAL BOOK</text>
+  <text x="88" y="292" fill="#f0f3f1" font-family="Georgia, 'Times New Roman', serif" font-size="78">Meaning Is Not</text>
+  <text x="88" y="378" fill="#f0f3f1" font-family="Georgia, 'Times New Roman', serif" font-size="78">Everything</text>
+  <text x="88" y="535" fill="#aab1ad" font-family="Arial, Helvetica, sans-serif" font-size="27">The small structures through which meaning becomes clear enough to be yours.</text>
+</svg>
