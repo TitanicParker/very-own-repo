@@ -112,6 +112,21 @@ A particularly strong candidate should survive this question:
 
 If the answer to both is yes, the pairing is doing real work.
 
+## Persistent public reader utilities
+
+The public reader now has two persistent utilities that must survive every future append:
+
+- **Share** — always available while reading, independent of the current gulp. It shares the current page/episode, not a single gulp unless gulp-sharing is deliberately introduced later.
+- **Visit count** — a small visible global count, incremented once for a new browser/app reading session and displayed across the reading experience.
+
+These are implemented centrally in `assets/site-utilities.js` and loaded automatically by `assets/reader-marker.js` for the entrance and all episode pages. Non-episode HTML surfaces such as `book.html` and `testing/index.html` must load `assets/site-utilities.js` directly using the correct relative path.
+
+Do not duplicate the counter/share implementation inside new episode HTML. Keep the utilities centralized so behavior, visual treatment, and counting rules remain consistent across the book.
+
+When changing the installed reader cache, keep `assets/site-utilities.js` in `service-worker.js` and advance the cache version.
+
+The count is a **visit/session count, not a verified unique-person count**. Do not relabel it as unique readers without a different measurement system.
+
 ## Governing test
 
 Before drafting, produce the private Continuation Warrant required by `CONTINUITY_CORE.md` and answer:
