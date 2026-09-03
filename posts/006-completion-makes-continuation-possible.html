@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b0a">
+<meta name="view-transition" content="same-origin">
+<title>Completion Makes Continuation Possible — Very Own Repo</title>
+<meta name="description" content="Chapter Six. A tiny angle proof makes visible how each completed intelligibility leaves the next lawful step available.">
+<style>
+:root{--bg:#090b0a;--bg2:#0d100e;--ink:#f0f3f1;--body:#c9cfcb;--muted:#7f8983;--line:rgba(220,230,223,.14);--green:#91efb9;--red:#c96b76;--wide:720px}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--body);font-family:Georgia,'Times New Roman',serif}body{background:radial-gradient(72rem 46rem at 8% -12%,rgba(145,239,185,.055),transparent 58%),radial-gradient(46rem 32rem at 105% 16%,rgba(201,107,118,.035),transparent 64%),linear-gradient(180deg,var(--bg2),var(--bg) 42rem)}.deck{display:flex;width:100%;height:100svh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}.deck::-webkit-scrollbar{display:none}.gulp{flex:0 0 100%;width:100%;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:max(2rem,env(safe-area-inset-top)) max(1.4rem,env(safe-area-inset-right)) max(5rem,calc(env(safe-area-inset-bottom) + 4rem)) max(1.4rem,env(safe-area-inset-left));scrollbar-width:none}.gulp::-webkit-scrollbar{display:none}.inner{width:min(100%,var(--wide));margin:auto}.eyebrow{margin:0 0 1rem;color:var(--green);font:600 .68rem/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase}.gulp h1{margin:0 0 1.65rem;color:var(--ink);font-size:clamp(3rem,10vw,5.5rem);line-height:.94;font-weight:400;letter-spacing:-.05em}.gulp h2{margin:0 0 1.2rem;color:var(--ink);font-size:clamp(2rem,6vw,3.2rem);line-height:1.02;font-weight:400;letter-spacing:-.035em}.gulp p{max-width:700px;margin:0 0 1.18rem;font-size:clamp(1.08rem,2.55vw,1.31rem);line-height:1.55}.gulp p:last-child{margin-bottom:0}.emphasis{color:var(--ink);font-size:clamp(1.38rem,3.7vw,1.9rem)!important;line-height:1.4!important}.quiet{color:#aab1ad}.small{font-size:clamp(.96rem,2.2vw,1.1rem)!important;color:#b6bdb9}.pull{padding:1.2rem 0;border-top:1px solid var(--line);border-bottom:1px solid rgba(201,107,118,.18);color:var(--ink)}.equation{margin:1.25rem 0!important;color:var(--ink);font:400 clamp(1.65rem,5vw,2.55rem)/1.2 Georgia,'Times New Roman',serif!important;letter-spacing:.01em}.now{color:var(--green);font:600 .67rem/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase}.twig-field{position:relative;width:min(78vw,420px);height:260px;margin:1rem auto 1.7rem}.twig{position:absolute;left:50%;top:50%;width:390px;height:5px;border-radius:99px;background:linear-gradient(90deg,rgba(201,107,118,.28),rgba(240,243,241,.72),rgba(145,239,185,.28));transform-origin:center}.twig.one{transform:translate(-50%,-50%) rotate(23deg)}.twig.two{transform:translate(-50%,-50%) rotate(-34deg)}.angle-label{position:absolute;color:var(--ink);font:500 1.25rem/1 system-ui,sans-serif}.a{left:47%;top:17%}.b{right:22%;top:45%}.c{left:48%;bottom:15%}.d{left:20%;top:45%}.cue{position:fixed;z-index:10;left:50%;bottom:max(1.1rem,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;align-items:center;gap:.65rem;color:var(--green);font:600 .68rem/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;text-shadow:0 0 20px rgba(145,239,185,.16);pointer-events:none}.cue::after{content:'→';font-size:1rem;font-weight:400}.progress{position:fixed;z-index:10;top:max(1.2rem,env(safe-area-inset-top));right:max(1.25rem,env(safe-area-inset-right));font:500 .66rem/1 system-ui,sans-serif;letter-spacing:.12em;color:var(--muted)}.progress .live{color:var(--green)}.utilities{position:fixed;z-index:10;left:max(1.15rem,env(safe-area-inset-left));top:max(1.1rem,env(safe-area-inset-top));display:flex;gap:.8rem;align-items:center;font:500 .68rem/1 system-ui,sans-serif;color:var(--muted)}.utilities a{color:inherit;text-decoration:none}.utilities a:hover{color:var(--green)}.wispy{position:fixed;z-index:0;inset:auto 0 0 auto;width:38vw;height:1px;background:linear-gradient(90deg,transparent,rgba(201,107,118,.22),transparent);transform:rotate(-7deg) translate(10vw,-16vh);filter:blur(.3px);pointer-events:none}@media(max-width:640px){.gulp{align-items:flex-start;padding-top:max(4.8rem,calc(env(safe-area-inset-top) + 3.8rem));padding-bottom:max(4.5rem,calc(env(safe-area-inset-bottom) + 3.5rem))}.gulp h1{font-size:3.08rem}.gulp h2{font-size:2.2rem}.gulp p{font-size:1.07rem;line-height:1.52;margin-bottom:1.03rem}.emphasis{font-size:1.42rem!important;line-height:1.4!important}.equation{font-size:1.7rem!important}.twig-field{height:220px}.twig{width:310px}.utilities{font-size:.62rem}}@media(max-height:700px) and (max-width:640px){.gulp{padding-top:max(4rem,calc(env(safe-area-inset-top) + 3rem))}.gulp p{font-size:1rem;line-height:1.46;margin-bottom:.85rem}.emphasis{font-size:1.3rem!important}.gulp h1{font-size:2.7rem}.twig-field{height:180px;margin:.5rem auto 1rem}.twig{width:270px}.angle-label{font-size:1rem}}@media(prefers-reduced-motion:reduce){.deck{scroll-behavior:auto}}@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
+</style>
+</head>
+<body>
+<div class="wispy" aria-hidden="true"></div>
+<div class="utilities"><a href="005-the-testing-field.html">Chapter Five</a><a href="../book.html">Book</a></div>
+<div id="progress" class="progress"><span class="live">1</span></div>
+<div id="cue" class="cue">Swipe for more</div>
+<main id="deck" class="deck" aria-label="Chapter Six">
+
+<section class="gulp"><div class="inner">
+<p class="eyebrow">Chapter Six</p>
+<h1>Completion Makes Continuation Possible</h1>
+<p>In the fairy tale, each completed moment changed what the next moment could be.</p>
+<p class="emphasis">Now let us make the same phenomenon almost impossible to miss.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Put two twigs across each other on a bench.</p>
+<p>Nothing sophisticated.</p>
+<div class="twig-field" aria-label="Two crossing straight twigs forming four angles A, B, C, and D"><div class="twig one"></div><div class="twig two"></div><span class="angle-label a">A</span><span class="angle-label b">B</span><span class="angle-label c">C</span><span class="angle-label d">D</span></div>
+<p class="emphasis">Four angles appear around the crossing.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Call them A, B, C and D.</p>
+<p>We are going to prove one tiny thing:</p>
+<p class="equation">A = C</p>
+<p class="quiet">The opposite angles are equal.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>But at the beginning, we do not yet have that.</p>
+<p>We can see A. We can see C.</p>
+<p>We might even suspect they are equal.</p>
+<p class="emphasis">Suspicion is not yet an earned relation.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Look first at A and B.</p>
+<p>Together they lie along one straight twig.</p>
+<p>A straight angle is 180°.</p>
+<p class="equation">A + B = 180°</p>
+<p><span class="now">Now available</span><br>A and B are tied to a settled total.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>That little completion matters.</p>
+<p>Before it, A and B were merely neighboring angles.</p>
+<p>After it, their relation can be carried.</p>
+<p class="emphasis">Something has become enough to use.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Now look at B and C.</p>
+<p>They also lie along one straight twig.</p>
+<p>So they complete in the same way.</p>
+<p class="equation">B + C = 180°</p>
+<p><span class="now">Now available</span><br>B and C are tied to the same settled total.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>And now something genuinely new becomes possible.</p>
+<p>We have two completed relations:</p>
+<p class="equation">A + B = 180°<br>B + C = 180°</p>
+<p>Because both are equal to the same thing, they can now be equated with each other.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="equation">A + B = B + C</p>
+<p>This line was not available at the beginning.</p>
+<p>Nothing about merely seeing four angles licensed it.</p>
+<p class="emphasis">Two earlier completions made this completion possible.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Now B appears on both sides.</p>
+<p>The same quantity is being added to A and to C.</p>
+<p>Remove that same B from both sides.</p>
+<p class="equation">A = C</p>
+<p><span class="now">Now available</span><br>The opposite angles are equal.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>We have travelled almost nowhere.</p>
+<p>Two twigs. Four letters. 180 degrees.</p>
+<p>And yet the final equality was unavailable at the opening and available at the end.</p>
+<p class="emphasis pull">What changed was not the picture. What changed was what had been earned.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Watch the continuity again.</p>
+<p class="equation">A + B = 180°</p>
+<p class="equation">B + C = 180°</p>
+<p class="equation">A + B = B + C</p>
+<p class="equation">A = C</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>That is not merely a list of true sentences.</p>
+<p>The order is load-bearing.</p>
+<p>The third line inherits the first two.</p>
+<p>The fourth line inherits the third.</p>
+<p class="emphasis">Each completion changes the lawful space of the next move.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Try starting at the end.</p>
+<p class="equation">A = C</p>
+<p>It may be true.</p>
+<p>But without the path, the equality has not been made available by this proof.</p>
+<p class="emphasis">The result and the route are not the same thing.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>This is the mathematical version of something the fairy tale already showed us.</p>
+<p>The hen hears a rustle because a world has become available in which there is something to hear.</p>
+<p>She can be caught because a world has become available in which the fox is present and acting.</p>
+<p class="emphasis">What comes next inherits what has become complete.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>But mathematics tightens the condition.</p>
+<p>A story can surprise us.</p>
+<p>A proof cannot simply announce a later relation and call the continuity lawful.</p>
+<p class="emphasis">The next step must be available from what has already been earned.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>This gives us a better way to think about continuity.</p>
+<p>Continuity is not the absence of endings.</p>
+<p>It is not one endless unresolved flow.</p>
+<p class="emphasis pull">Continuity can be built from completions that leave something available.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>That matters for learning.</p>
+<p>If a learner never gets hold of the first relation, the second relation has less to attach to.</p>
+<p>If both relations become graspable and remain available, comparison becomes possible.</p>
+<p>Then cancellation becomes possible.</p>
+<p>Then a new equality becomes possible.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Development often has this shape.</p>
+<p>You become able to do something.</p>
+<p>That ability remains available.</p>
+<p>Something that previously had nowhere to land can now be taken up.</p>
+<p class="emphasis">A completed capacity becomes part of the opening condition for another one.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>Progress has the same dependence.</p>
+<p>If nothing can be retained as achieved, every moment has to begin again.</p>
+<p>There is no accumulated ground.</p>
+<p class="emphasis">To progress is, in part, to inherit what no longer has to be reopened from nothing.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>And understanding?</p>
+<p>Understanding is not merely having more statements in your possession.</p>
+<p>Something becomes intelligible enough that another relation can now be seen, tested, used or completed.</p>
+<p class="emphasis">One grasp changes the availability of the next.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>This is why the fifty-four matter here.</p>
+<p>Every one of these steps completes in some determinate way.</p>
+<p>Each achieved result persists in some determinate way.</p>
+<p>And because it persists, the next step does not begin from an empty field.</p>
+<p class="emphasis">The forms of completion are also forms of inheritance.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>We do not need to stamp a cell number on every line to see the phenomenon.</p>
+<p>We can recover the coordinate when we need it.</p>
+<p>For now, something more basic is becoming visible.</p>
+<p class="emphasis pull">Completed intelligibility is one of the ways a future becomes available to understanding.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p>The proof began with four angles.</p>
+<p>It ended with an equality that had not yet been earned.</p>
+<p>Nothing entered from nowhere.</p>
+<p>Each completed relation altered what could lawfully follow.</p>
+</div></section>
+
+<section class="gulp"><div class="inner">
+<p class="emphasis">Completion is not the opposite of continuation.</p>
+<p class="emphasis pull">Completion is what makes continuation possible.</p>
+<p class="quiet">Now we can return to the fifty-four and ask more precisely how a completion takes the shape it does.</p>
+</div></section>
+
+</main>
+<script>
+const deck=document.getElementById('deck');
+const progress=document.getElementById('progress');
+const cue=document.getElementById('cue');
+const slides=[...document.querySelectorAll('.gulp')];
+let index=0;
+function updateIndex(){const next=Math.round(deck.scrollLeft/Math.max(1,deck.clientWidth));index=Math.max(0,Math.min(slides.length-1,next));progress.innerHTML=`<span class="live">${index+1}</span> / ${slides.length}`;cue.textContent=index===slides.length-1?'Continue':'Swipe for more'}
+updateIndex();
+deck.addEventListener('scroll',()=>requestAnimationFrame(updateIndex),{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();deck.scrollTo({left:Math.min(slides.length-1,index+1)*deck.clientWidth,behavior:'smooth'})}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();deck.scrollTo({left:Math.max(0,index-1)*deck.clientWidth,behavior:'smooth'})}});
+</script>
+<script src="../assets/reader-marker.js?v=20260903f"></script>
+</body>
+</html>
