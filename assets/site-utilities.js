@@ -24,7 +24,8 @@
     #meaning-global-count{right:max(1rem,env(safe-area-inset-right));display:flex;align-items:center;gap:.38rem;border:1px solid rgba(220,230,223,.12);border-radius:999px;background:rgba(9,11,10,.72);padding:.58rem .72rem;color:#8d9791;white-space:nowrap}
     #meaning-global-count .meaning-count-dot{width:.42rem;height:.42rem;border-radius:50%;background:#c96b76;box-shadow:0 0 12px rgba(201,107,118,.45)}
     #meaning-global-count strong{color:#91efb9;font-weight:700;font-variant-numeric:tabular-nums;transition:transform .2s ease,color .2s ease}
-    #meaning-global-count.bump strong{transform:translateY(-2px);color:#f0f3f1}
+    #meaning-global-count.bump strong{transform:translateY(-2px) scale(1.08);color:#f0f3f1}
+    #meaning-global-count.bump .meaning-count-dot{box-shadow:0 0 20px rgba(201,107,118,.8)}
     #meaning-global-count .meaning-count-label{font-weight:500;color:#8d9791}
     @media(max-width:520px){#meaning-global-share,#meaning-global-count{font-size:.61rem}#meaning-global-share button,#meaning-global-count{padding:.52rem .66rem}}
   `;
@@ -93,10 +94,22 @@
       countWrap.classList.remove('bump');
       requestAnimationFrame(() => {
         countWrap.classList.add('bump');
-        setTimeout(() => countWrap.classList.remove('bump'), 420);
+        setTimeout(() => countWrap.classList.remove('bump'), 520);
       });
     }
     try { localStorage.setItem(LOCAL_COUNT_KEY, String(value)); } catch (_) {}
+  }
+
+  function getCounter(path = '/') {
+    return fetch(`${COUNTER_BASE}${path}`, { cache: 'no-store', mode: 'cors', referrerPolicy: 'no-referrer' })
+      .then(response => {
+        if (!response.ok) throw new Error(`counter ${response.status}`);
+        return response.json();
+      })
+      .then(data => {
+        if (!data || typeof data.count !== 'number') throw new Error('counter response');
+        return data.count;
+      });
   }
 
   let cachedCount = null;
@@ -108,24 +121,28 @@
 
   let alreadyCounted = false;
   try { alreadyCounted = sessionStorage.getItem(SESSION_KEY) === '1'; } catch (_) {}
-  if (!alreadyCounted) {
-    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (_) {}
+
+  if (alreadyCounted) {
+    getCounter('/')
+      .then(value => showCount(value, cachedCount !== null && value !== cachedCount))
+      .catch(() => { if (cachedCount === null) countValue.textContent = '—'; });
+    return;
   }
 
-  const endpoint = alreadyCounted ? `${COUNTER_BASE}/` : `${COUNTER_BASE}/up`;
-  fetch(endpoint, { cache: 'no-store', mode: 'cors', referrerPolicy: 'no-referrer' })
-    .then(response => {
-      if (!response.ok) throw new Error(`counter ${response.status}`);
-      return response.json();
+  try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (_) {}
+
+  getCounter('/')
+    .then(before => {
+      showCount(before, false);
+      return new Promise(resolve => setTimeout(resolve, 420)).then(() => getCounter('/up'));
     })
-    .then(data => {
-      if (!data || typeof data.count !== 'number') throw new Error('counter response');
-      showCount(data.count, cachedCount !== null && data.count !== cachedCount);
-    })
+    .then(after => showCount(after, true))
     .catch(() => {
-      if (cachedCount === null) countValue.textContent = '—';
-      if (!alreadyCounted) {
-        try { sessionStorage.removeItem(SESSION_KEY); } catch (_) {}
-      }
+      getCounter('/up')
+        .then(after => showCount(after, true))
+        .catch(() => {
+          if (cachedCount === null) countValue.textContent = '—';
+          try { sessionStorage.removeItem(SESSION_KEY); } catch (_) {}
+        });
     });
 })();
