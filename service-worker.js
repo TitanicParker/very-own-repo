@@ -1,4 +1,4 @@
-const CACHE = 'meaning-reader-v6';
+const CACHE = 'meaning-reader-v7';
 const CORE = [
   './',
   './index.html',
