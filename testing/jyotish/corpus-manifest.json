@@ -1,0 +1,21 @@
+{
+  "corpus": "Prospective Jyotish GPT chart-reading trials",
+  "version": 1,
+  "status": "prospective",
+  "records": [
+    {
+      "record_id": "jyotish-001",
+      "path": "testing/jyotish/corpus/001-liam-birth-chart-placeholder.json",
+      "subject_label": "Liam",
+      "status": "placeholder",
+      "contains_real_birth_data": false,
+      "eligible_for_blind_assays": false
+    }
+  ],
+  "append_policy": {
+    "record_ids_are_stable": true,
+    "raw_chart_data_separated_from_model_outputs": true,
+    "reference_outcomes_separated_from_blind_inputs": true,
+    "notes": "When a placeholder becomes a live case, update its status and eligibility without changing record_id. Add subsequent cases as new records rather than renumbering prior records."
+  }
+}

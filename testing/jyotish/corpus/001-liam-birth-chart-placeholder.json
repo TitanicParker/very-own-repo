@@ -1,0 +1,63 @@
+{
+  "record_id": "jyotish-001",
+  "status": "placeholder",
+  "subject_label": "Liam",
+  "privacy": {
+    "intended_repository_visibility": "public",
+    "contains_real_birth_data": false,
+    "note": "No birth date, birth time, birthplace, coordinates, chart placements, or interpretive outcomes are stored in this placeholder. Populate only data the subject explicitly intends to publish."
+  },
+  "source_birth_data": {
+    "date_local": null,
+    "time_local": null,
+    "time_precision": null,
+    "timezone": null,
+    "birthplace_name": null,
+    "latitude": null,
+    "longitude": null,
+    "source_note": null
+  },
+  "calculation_profile": {
+    "tradition": "Jyotish",
+    "zodiac": "sidereal",
+    "ayanamsha": null,
+    "house_system": null,
+    "node_type": null,
+    "ephemeris_or_calculator": null,
+    "calculation_notes": null
+  },
+  "derived_chart": {
+    "lagna": null,
+    "rashi_placements": [],
+    "house_lordships": [],
+    "aspects": [],
+    "dignities": [],
+    "conjunctions": [],
+    "dispositor_relations": [],
+    "named_yogas_reference_only": [],
+    "divisional_charts": {},
+    "dasha_state": null,
+    "other_formal_relations": []
+  },
+  "blindness_layers": {
+    "raw_birth_data_available_to_model": false,
+    "canonical_yoga_names_available_to_model": false,
+    "known_biographical_outcomes_available_to_model": false,
+    "other_model_outputs_available_to_model": false
+  },
+  "assays": [],
+  "model_runs": [],
+  "ground_truth_or_reference": {
+    "traditional_reference_reading": null,
+    "human_expert_readings": [],
+    "external_outcomes": [],
+    "note": "Reference material must remain separable from blind model inputs."
+  },
+  "provenance": {
+    "created_for": "Prospective GPT reading of Jyotish charts testing field",
+    "created_at": "2026-09-03",
+    "source_files": [
+      "testing/JYOTISH_GPT_TEST.md"
+    ]
+  }
+}
