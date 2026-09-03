@@ -46,7 +46,8 @@
     '020-before-the-example-exists.html': { episode: 20, title: 'Before the Example Exists' },
     '021-the-map-outgrew-the-sentence.html': { episode: 21, title: 'The Map Outgrew the Sentence' },
     '022-whose-subject-is-this.html': { episode: 22, title: 'Whose Subject Is This?' },
-    '023-what-would-make-us-wrong.html': { episode: 23, title: 'What Would Make Us Wrong?' }
+    '023-what-would-make-us-wrong.html': { episode: 23, title: 'What Would Make Us Wrong?' },
+    '024-confession-of-a-gpt.html': { episode: 24, title: 'Confession of a GPT' }
   };
   const knownNext = {
     '001-meaning-is-not-everything.html': '002-enough-is-a-shape.html',
@@ -70,7 +71,8 @@
     '019-the-map-has-a-rhythm.html': '020-before-the-example-exists.html',
     '020-before-the-example-exists.html': '021-the-map-outgrew-the-sentence.html',
     '021-the-map-outgrew-the-sentence.html': '022-whose-subject-is-this.html',
-    '022-whose-subject-is-this.html': '023-what-would-make-us-wrong.html'
+    '022-whose-subject-is-this.html': '023-what-would-make-us-wrong.html',
+    '023-what-would-make-us-wrong.html': '024-confession-of-a-gpt.html'
   };
   const meta = episodes[currentFile] || { episode: 0, title: 'Introduction' };
   const nextHref = isHome ? 'posts/001-meaning-is-not-everything.html' : (knownNext[currentFile] || null);
