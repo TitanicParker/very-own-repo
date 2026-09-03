@@ -39,7 +39,7 @@
     '013-enough-between-us.html': { episode: 13, title: 'Enough Between Us' },
     '014-leave-a-way-back.html': { episode: 14, title: 'Leave a Way Back' },
     '015-the-slipper-survived-midnight.html': { episode: 15, title: 'The Slipper Survived Midnight' },
-    '016-the-compass-kept-its-promise.html': { episode: 16, title: 'The Compass Kept Its Promise' }
+    '016-the-compass-kept-its-promise.html': { episode: 16, title: 'An Appeal to Reason' }
   };
   const knownNext = {
     '001-meaning-is-not-everything.html': '002-enough-is-a-shape.html',
