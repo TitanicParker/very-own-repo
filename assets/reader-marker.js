@@ -6,11 +6,22 @@
   const utilities = document.querySelector('.utilities');
   const cue = document.getElementById('cue') || document.querySelector('.cue');
   const progress = document.getElementById('progress') || document.querySelector('.progress');
+  const isHome = /\/very-own-repo\/?$/.test(location.pathname) || /\/index\.html$/.test(location.pathname);
+
+  function loadSiteUtilities() {
+    if (document.querySelector('script[data-meaning-site-utilities]') || window.__meaningSiteUtilitiesReady) return;
+    const script = document.createElement('script');
+    script.dataset.meaningSiteUtilities = 'true';
+    script.src = new URL(isHome ? 'assets/site-utilities.js' : '../assets/site-utilities.js', location.href).href;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+  loadSiteUtilities();
+
   if (!deck || !slides.length) return;
   if (document.documentElement.dataset.readerProgressReady === 'true') return;
   document.documentElement.dataset.readerProgressReady = 'true';
 
-  const isHome = /\/very-own-repo\/?$/.test(location.pathname) || /\/index\.html$/.test(location.pathname);
   const currentFile = location.pathname.split('/').pop() || 'index.html';
   const episodes = {
     '001-meaning-is-not-everything.html': { episode: 1, title: 'Meaning Is Not Everything' },
