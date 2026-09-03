@@ -18,14 +18,16 @@
     '003-the-whole-world-in-a-doorway.html': { episode: 3, title: 'The Whole World in a Doorway' },
     '004-the-whole-field.html': { episode: 4, title: 'The Whole Field' },
     '005-the-testing-field.html': { episode: 5, title: 'The Testing Field' },
-    '006-completion-makes-continuation-possible.html': { episode: 6, title: 'Completion Makes Continuation Possible' }
+    '006-completion-makes-continuation-possible.html': { episode: 6, title: 'Completion Makes Continuation Possible' },
+    '007-jog-your-imagination.html': { episode: 7, title: 'Jog Your Imagination' }
   };
   const knownNext = {
     '001-meaning-is-not-everything.html': '002-enough-is-a-shape.html',
     '002-enough-is-a-shape.html': '003-the-whole-world-in-a-doorway.html',
     '003-the-whole-world-in-a-doorway.html': '004-the-whole-field.html',
     '004-the-whole-field.html': '005-the-testing-field.html',
-    '005-the-testing-field.html': '006-completion-makes-continuation-possible.html'
+    '005-the-testing-field.html': '006-completion-makes-continuation-possible.html',
+    '006-completion-makes-continuation-possible.html': '007-jog-your-imagination.html'
   };
   const meta = episodes[currentFile] || { episode: 0, title: 'Introduction' };
   const nextHref = isHome ? 'posts/001-meaning-is-not-everything.html' : (knownNext[currentFile] || null);

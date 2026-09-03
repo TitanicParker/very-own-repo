@@ -11,8 +11,11 @@ The live repository for a serial book about completed intelligibility.
 4. [The Whole Field](posts/004-the-whole-field.html)
 5. [The Testing Field](posts/005-the-testing-field.html)
 6. [Completion Makes Continuation Possible](posts/006-completion-makes-continuation-possible.html)
+7. [Jog Your Imagination](posts/007-jog-your-imagination.html)
 
 The entrance offers two ways to read: install the book as a small reader on the device, with automatic place memory, or visit without installing and jump directly to any episode.
+
+Episode 7 is the current living edge.
 
 ## Reference
 
