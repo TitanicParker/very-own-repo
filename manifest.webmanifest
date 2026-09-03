@@ -1,0 +1,18 @@
+{
+  "name": "Meaning Is Not Everything",
+  "short_name": "Meaning",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090b0a",
+  "theme_color": "#090b0a",
+  "description": "A serial book about completed intelligibility.",
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
