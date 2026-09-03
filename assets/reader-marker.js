@@ -20,7 +20,13 @@
     '005-the-testing-field.html': { episode: 5, title: 'The Testing Field' },
     '006-completion-makes-continuation-possible.html': { episode: 6, title: 'Completion Makes Continuation Possible' },
     '007-jog-your-imagination.html': { episode: 7, title: 'Jog Your Imagination' },
-    '008-what-remains.html': { episode: 8, title: 'What Remains' }
+    '008-what-remains.html': { episode: 8, title: 'What Remains' },
+    '009-the-sentence-is-not-the-landing.html': { episode: 9, title: 'The Sentence Is Not the Landing' },
+    '010-completion-can-reopen.html': { episode: 10, title: 'Completion Can Reopen' },
+    '011-a-correction-is-not-a-rewind.html': { episode: 11, title: 'A Correction Is Not a Rewind' },
+    '012-how-much-can-a-small-thing-carry.html': { episode: 12, title: 'How Much Can a Small Thing Carry?' },
+    '013-enough-between-us.html': { episode: 13, title: 'Enough Between Us' },
+    '014-leave-a-way-back.html': { episode: 14, title: 'Leave a Way Back' }
   };
   const knownNext = {
     '001-meaning-is-not-everything.html': '002-enough-is-a-shape.html',
@@ -29,7 +35,13 @@
     '004-the-whole-field.html': '005-the-testing-field.html',
     '005-the-testing-field.html': '006-completion-makes-continuation-possible.html',
     '006-completion-makes-continuation-possible.html': '007-jog-your-imagination.html',
-    '007-jog-your-imagination.html': '008-what-remains.html'
+    '007-jog-your-imagination.html': '008-what-remains.html',
+    '008-what-remains.html': '009-the-sentence-is-not-the-landing.html',
+    '009-the-sentence-is-not-the-landing.html': '010-completion-can-reopen.html',
+    '010-completion-can-reopen.html': '011-a-correction-is-not-a-rewind.html',
+    '011-a-correction-is-not-a-rewind.html': '012-how-much-can-a-small-thing-carry.html',
+    '012-how-much-can-a-small-thing-carry.html': '013-enough-between-us.html',
+    '013-enough-between-us.html': '014-leave-a-way-back.html'
   };
   const meta = episodes[currentFile] || { episode: 0, title: 'Introduction' };
   const nextHref = isHome ? 'posts/001-meaning-is-not-everything.html' : (knownNext[currentFile] || null);
