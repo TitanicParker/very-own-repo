@@ -1,4 +1,4 @@
-const CACHE = 'meaning-reader-v2';
+const CACHE = 'meaning-reader-v3';
 const CORE = [
   './',
   './index.html',
@@ -6,6 +6,9 @@ const CORE = [
   './manifest.webmanifest',
   './assets/reader-marker.js',
   './assets/app-icon.svg',
+  './TESTING_FIELD.md',
+  './testing/',
+  './testing/index.html',
   './posts/001-meaning-is-not-everything.html',
   './posts/002-enough-is-a-shape.html',
   './posts/003-the-whole-world-in-a-doorway.html',
