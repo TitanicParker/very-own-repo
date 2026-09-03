@@ -28,10 +28,11 @@ A serial book about the small structures through which meaning becomes clear eno
 21. [The Map Outgrew the Sentence](posts/021-the-map-outgrew-the-sentence.html)
 22. [Whose Subject Is This?](posts/022-whose-subject-is-this.html)
 23. [What Would Make Us Wrong?](posts/023-what-would-make-us-wrong.html)
+24. [Confession of a GPT](posts/024-confession-of-a-gpt.html)
 
 The entrance offers two ways to read: keep the reader on this device with automatic place memory, or visit without installing and jump directly to any episode.
 
-Episode 23 is the latest episode.
+Episode 24 is the latest episode.
 
 ## Reference
 
