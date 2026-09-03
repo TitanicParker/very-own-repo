@@ -1,0 +1,27 @@
+name: Final tidy
+on:
+  push:
+    paths:
+      - '.github/workflows/final-tidy.yml'
+permissions:
+  contents: write
+jobs:
+  tidy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Fix testing-field and Chapter Four language
+        shell: bash
+        run: |
+          python3 -c "from pathlib import Path; p=Path('TESTING_FIELD.md'); s=p.read_text(); s=s.replace('# Canonical Repository Corpus\n\n**Status:** Canonical sentence corpus for this repository.\n\nThis file combines the two complete sentence collections currently designated for corpus work. It preserves the source order and exact sentence wording while removing analytical columns that are not themselves part of the requested sentence corpus.','''# Testing Field\n\nThis file contains the two complete bodies of material used to test the grammar against language that was not written for it. Source order and exact sentence wording are preserved.''',1); s=s.replace('## Source provenance','## Sources',1); s=s.replace('This is a corpus file, not a reconciliation or rewrite of the sources.','This is the testing material itself, not a reconciliation or rewrite of the sources.',1); p.write_text(s)"
+          python3 -c "from pathlib import Path; p=Path('posts/004-the-whole-field.html'); s=p.read_text(); s=s.replace('First we will slow down and examine Completion Topology properly. Then Persistence Mode. Then the field has to survive contact with sentences that were never written for it.','First we open the testing field: fairy tales and mathematical traversals that were never written for the fifty-four. Then we watch completion make continuation possible under narrative and mathematical pressure.',1); p.write_text(s)"
+      - name: Commit
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add TESTING_FIELD.md posts/004-the-whole-field.html
+          git commit -m "Finish repository tidy" || exit 0
+          git push origin main
