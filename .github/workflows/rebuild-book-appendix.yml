@@ -1,0 +1,163 @@
+name: Rebuild book appendix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rebuild-book-appendix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Replace legacy appendix with canonical Persistence appendix
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('WORKING.md')
+          s = p.read_text()
+          marker = '# Appendix — The 54'
+          if marker not in s:
+              raise SystemExit('Appendix marker not found')
+          head = s.split(marker, 1)[0].rstrip()
+          appendix = r'''
+
+---
+
+# Appendix — The Fifteen Primitive Definitions
+
+These definitions are the primitive grammar used by the book from this point onward.
+
+## The three primitive dimensions
+
+1. **Transformation Pattern** — Specifies what kind of unresolvedness is altered between the opening and completed situation.
+2. **Completion Topology** — Specifies the structural shape by which the transformation counts as complete.
+3. **Persistence Mode** — Specifies how the achieved completion remains available for subsequent uptake.
+
+## Transformation Pattern values
+
+4. **Differentiation** — A difference that was unavailable, flattened, conflated, or non-operative becomes determinate enough to matter.
+5. **Opening** — Availability, reach, continuation, access, or possibility becomes greater than it was under the opening constraint.
+6. **Relating** — A bearing, dependency, correspondence, ordering, reciprocity, or mutual determination becomes constitutive of the situation.
+7. **Repair** — An organization that fails relative to an operative criterion is changed so that the misfit or fault no longer governs the result.
+8. **Integration** — Separate parts acquire determinate roles through organization into a whole and thereby gain structure, mutual support, or joint capacity.
+9. **Settlement** — A live demand for further uptake, choice, explanation, completion, adjudication, or continuation is discharged.
+
+## Completion Topology values
+
+10. **Focal** — The transformation becomes complete because completion gathers around one privileged locus. That locus is constitutive of why the transformation counts as complete.
+11. **Distributed** — The transformation becomes complete only across a constitutive plurality, span, sequence, range, reciprocal field, set of cases, or system. No single locus is sufficient by itself.
+12. **Release** — The transformation becomes complete because something that previously governed the situation loses its determining force. Release means de-governance, not merely removal, absence, negation, separation, physical movement away, or negative wording.
+
+## Persistence Mode values
+
+13. **Standing** — The achieved determination itself remains available as the completed result.
+14. **Bearing** — The achieved result remains what it is only through a constitutive relation, dependency, contrast, condition, source, proportion, frame, support, or mutual determination.
+15. **Efficacy** — The achieved result remains as an accomplished capacity, operative effect, changed continuation, rule, function, or consequential difference in what can happen.
+
+## Dimensional Conjunction
+
+**Dimensional Conjunction is not a fourth dimension.**
+
+A coordinate is written:
+
+`Transformation Pattern × Completion Topology × Persistence Mode`
+
+The notation locates a position in the grammar. It does not mean three detachable characteristics have been added together. The three dimensions are simultaneous relational constraints upon one completion-event. Each dimension constrains how the other two can be realized. Their conjunction is reciprocal determination.
+
+> **The coordinate is a constraint that generates the form, not a description of three properties possessed by the form.**
+
+There is no valid semantic derivation `Transformation → Topology → Persistence`. No dimension is an operation performed upon another. Focal does not simply select; Distributed does not simply pluralize; Release does not simply negate; Standing does not merely preserve; Bearing does not merely add a relation; Efficacy does not merely add usefulness or a later consequence.
+
+---
+
+# Appendix — The 54
+
+Let:
+
+- **T** = {Differentiation, Opening, Relating, Repair, Integration, Settlement}
+- **K** = {Focal, Distributed, Release}
+- **P** = {Standing, Bearing, Efficacy}
+
+A coordinate is `c = <t, k, p> ∈ T × K × P`.
+
+Therefore `|T × K × P| = 6 × 3 × 3 = 54`.
+
+The product notation and numbering index the space. They do not imply additive cell semantics.
+
+| Cell | Coordinate | Coordinate-generated form | Canonical crystallization | Companion utterance |
+|---:|---|---|---|---|
+| 01 | Differentiation × Focal × Standing | Focal distinguished standing | Focal mark | This. |
+| 02 | Differentiation × Focal × Bearing | Focal contrast-bearing distinction | Binary bearing | This, not that. |
+| 03 | Differentiation × Focal × Efficacy | Focal operative distinction | Boundary act | This far. |
+| 04 | Differentiation × Distributed × Standing | Distributed distinguished standing | Scope standing | Within this. |
+| 05 | Differentiation × Distributed × Bearing | Context-bearing distinction | Context-bound mark | This here. |
+| 06 | Differentiation × Distributed × Efficacy | Distributed differential efficacy | Field separation | These among these. |
+| 07 | Differentiation × Release × Standing | Released differentiated standing | Opposed standing | Opposed. |
+| 08 | Differentiation × Release × Bearing | Released comparative bearing | Graded contrast | More and less. |
+| 09 | Differentiation × Release × Efficacy | Released exclusionary efficacy | Exclusive cut | Not admitted. |
+| 10 | Opening × Focal × Standing | Focal available field | Source field | From here. |
+| 11 | Opening × Focal × Bearing | Source-bearing divergence | Source-carried divergence | From here, either way. |
+| 12 | Opening × Focal × Efficacy | Focal generative opening | Branching output | More ways open. |
+| 13 | Opening × Distributed × Standing | Distributed passage standing | Alternate passage | Another way through. |
+| 14 | Opening × Distributed × Bearing | Span-bearing reach | Span-carried reach | Reachable across. |
+| 15 | Opening × Distributed × Efficacy | Distributed availability | Field distribution | Available throughout. |
+| 16 | Opening × Release × Standing | Released option standing | Released option | Free to choose. |
+| 17 | Opening × Release × Bearing | Released continuity bearing | Continual passage | Through without break. |
+| 18 | Opening × Release × Efficacy | Released beyond-limit efficacy | Edge opening | Beyond. |
+| 19 | Relating × Focal × Standing | Focal relation standing | Direct bearing | This bears on that. |
+| 20 | Relating × Focal × Bearing | Focal counterbearing | Pivoted balance | Held in counterbalance. |
+| 21 | Relating × Focal × Efficacy | Focal responsive efficacy | Responsive return | Answered. |
+| 22 | Relating × Distributed × Standing | Distributed relation standing | Sequential link | Then. |
+| 23 | Relating × Distributed × Bearing | Reciprocal bearing | Reciprocal shift | Each changes the other. |
+| 24 | Relating × Distributed × Efficacy | Distributed relational efficacy | Relational cycle | Back into itself. |
+| 25 | Relating × Release × Standing | Released correspondence standing | Pattern alignment | The same arrangement. |
+| 26 | Relating × Release × Bearing | Released correspondence bearing | Role correspondence | This plays that role. |
+| 27 | Relating × Release × Efficacy | Released emergent efficacy | Emergent coordination | Something appears between them. |
+| 28 | Repair × Focal × Standing | Focal corrected standing | Focal adjustment | Set right. |
+| 29 | Repair × Focal × Bearing | Focal proportional bearing | Proportional correction | Rightly balanced. |
+| 30 | Repair × Focal × Efficacy | Focal corrective efficacy | Load transfer | The burden shifts. |
+| 31 | Repair × Distributed × Standing | Distributed corrected standing | Cross-position validation | Does it still hold across? |
+| 32 | Repair × Distributed × Bearing | Distributed corrective bearing | Joint-bound repair | Right between both. |
+| 33 | Repair × Distributed × Efficacy | Distributed corrective efficacy | In-course correction | Corrected in course. |
+| 34 | Repair × Release × Standing | Released corrected standing | Limit reset | A better limit. |
+| 35 | Repair × Release × Bearing | Released conditional correction | Condition reversal | Reverse when this holds. |
+| 36 | Repair × Release × Efficacy | Released corrective efficacy | Disorder released | Free of the fault. |
+| 37 | Integration × Focal × Standing | Focal integrated standing | Focal whole | One whole. |
+| 38 | Integration × Focal × Bearing | Focal unity bearing | Frame-held whole | Held as one. |
+| 39 | Integration × Focal × Efficacy | Focal integrated efficacy | Joint capacity | Together able. |
+| 40 | Integration × Distributed × Standing | Distributed integrated standing | Role array | Each in its place. |
+| 41 | Integration × Distributed × Bearing | Distributed mutual-support bearing | Mutual-support structure | Held through each other. |
+| 42 | Integration × Distributed × Efficacy | Distributed integrated efficacy | Role activation | In operation. |
+| 43 | Integration × Release × Standing | Released integrated standing | Self-maintaining equilibrium | Able to remain. |
+| 44 | Integration × Release × Bearing | Released equilibrium bearing | Sustained equilibrium | Tension that holds. |
+| 45 | Integration × Release × Efficacy | Released integrated efficacy | Convergent whole | Many become one act. |
+| 46 | Settlement × Focal × Standing | Focal settled standing | Settled alternative | Chosen. |
+| 47 | Settlement × Focal × Bearing | Focal settlement bearing | Unified settlement | Together now. |
+| 48 | Settlement × Focal × Efficacy | Focal settlement efficacy | Path completion | Arrived. |
+| 49 | Settlement × Distributed × Standing | Distributed settled standing | Recurrence settlement | It returns. |
+| 50 | Settlement × Distributed × Bearing | Distributed conditional settlement | Condition-bound settlement | Settled if. |
+| 51 | Settlement × Distributed × Efficacy | Distributed settlement efficacy | Case settlement | Settled across the cases. |
+| 52 | Settlement × Release × Standing | Released settled standing | Transformation release | Still itself. |
+| 53 | Settlement × Release × Bearing | Released explanatory bearing | Retrospective settlement | Now it makes sense. |
+| 54 | Settlement × Release × Efficacy | Released settlement efficacy | Continuation discharge | Nothing further is owed. |
+'''
+          p.write_text(head + appendix + '\n')
+          PY
+      - name: Commit rebuilt appendix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add WORKING.md
+          git commit -m 'Rebuild appendix from canonical Persistence grammar'
+          git push
