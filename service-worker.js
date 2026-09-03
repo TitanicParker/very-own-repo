@@ -1,4 +1,4 @@
-const CACHE = 'meaning-reader-v5';
+const CACHE = 'meaning-reader-v6';
 const CORE = [
   './',
   './index.html',
@@ -16,7 +16,13 @@ const CORE = [
   './posts/005-the-testing-field.html',
   './posts/006-completion-makes-continuation-possible.html',
   './posts/007-jog-your-imagination.html',
-  './posts/008-what-remains.html'
+  './posts/008-what-remains.html',
+  './posts/009-the-sentence-is-not-the-landing.html',
+  './posts/010-completion-can-reopen.html',
+  './posts/011-a-correction-is-not-a-rewind.html',
+  './posts/012-how-much-can-a-small-thing-carry.html',
+  './posts/013-enough-between-us.html',
+  './posts/014-leave-a-way-back.html'
 ];
 
 self.addEventListener('install', event => {
