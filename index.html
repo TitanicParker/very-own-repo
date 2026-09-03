@@ -33,6 +33,12 @@
 <a class="episode-link" href="posts/006-completion-makes-continuation-possible.html"><span class="episode-no">06</span><span class="episode-title">Completion Makes Continuation Possible</span></a>
 <a class="episode-link" href="posts/007-jog-your-imagination.html"><span class="episode-no">07</span><span class="episode-title">Jog Your Imagination</span></a>
 <a class="episode-link" href="posts/008-what-remains.html"><span class="episode-no">08</span><span class="episode-title">What Remains</span></a>
+<a class="episode-link" href="posts/009-the-sentence-is-not-the-landing.html"><span class="episode-no">09</span><span class="episode-title">The Sentence Is Not the Landing</span></a>
+<a class="episode-link" href="posts/010-completion-can-reopen.html"><span class="episode-no">10</span><span class="episode-title">Completion Can Reopen</span></a>
+<a class="episode-link" href="posts/011-a-correction-is-not-a-rewind.html"><span class="episode-no">11</span><span class="episode-title">A Correction Is Not a Rewind</span></a>
+<a class="episode-link" href="posts/012-how-much-can-a-small-thing-carry.html"><span class="episode-no">12</span><span class="episode-title">How Much Can a Small Thing Carry?</span></a>
+<a class="episode-link" href="posts/013-enough-between-us.html"><span class="episode-no">13</span><span class="episode-title">Enough Between Us</span></a>
+<a class="episode-link" href="posts/014-leave-a-way-back.html"><span class="episode-no">14</span><span class="episode-title">Leave a Way Back</span></a>
 </div></div></div></section>
 <div class="utilities"><button id="episodesButton" type="button">Episodes</button><button id="shareButton" type="button">Share</button><span id="shareStatus" aria-live="polite"></span></div>
 <div id="progress" class="progress"><span class="live">1</span> / 6</div><div id="cue" class="cue">Swipe for more</div>
@@ -51,44 +57,7 @@ const chapterOne='posts/001-meaning-is-not-everything.html';let index=0,touchSta
 function isStandalone(){return window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}
 function readPosition(){try{const current=JSON.parse(localStorage.getItem(POSITION_KEY)||'null');if(current&&typeof current.path==='string'&&Number.isInteger(current.place))return current;const old=JSON.parse(localStorage.getItem(LEGACY_KEY)||'null');if(old&&typeof old.path==='string'&&Number.isInteger(old.place))return {path:old.path,place:old.place,episode:null,title:old.chapter||'Saved place'}}catch(_){}return null}
 function positionHref(pos){if(!pos)return '#';const url=new URL(pos.path,location.origin);url.hash=`place=${pos.place+1}`;return `${url.pathname}${url.hash}`}
-function renderEntrance(){
-  const pos=readPosition(),standalone=isStandalone(),title=document.getElementById('gateTitle'),lead=document.getElementById('gateLead'),resumeLink=document.getElementById('resumeLink');
-  episodePanel.hidden=true;
-  installNote.hidden=true;
-  if(standalone){
-    title.textContent='Welcome back.';
-    lead.textContent=pos?'Continue exactly where you stopped, choose an episode, or begin again.':'Choose an episode, or begin again from the introduction.';
-    firstChoices.hidden=true;
-    firstChoices.style.display='none';
-    resumeCard.hidden=false;
-    if(pos){
-      document.getElementById('resumeTitle').textContent=pos.episode?`Episode ${pos.episode} — ${pos.title}`:(pos.title||'Saved place');
-      document.getElementById('resumePlace').textContent=`Place ${pos.place+1}${pos.total?` of ${pos.total}`:''}`;
-      resumeLink.href=positionHref(pos);
-      resumeLink.hidden=false;
-    }else{
-      document.getElementById('resumeTitle').textContent='The book is ready.';
-      document.getElementById('resumePlace').textContent='No saved reading place yet.';
-      resumeLink.hidden=true;
-    }
-    return;
-  }
-  firstChoices.hidden=false;
-  firstChoices.style.display='';
-  if(pos){
-    title.textContent='You have a place here.';
-    lead.textContent='This browser remembers where you stopped. You can continue, or choose another way in.';
-    document.getElementById('resumeTitle').textContent=pos.episode?`Episode ${pos.episode} — ${pos.title}`:(pos.title||'Saved place');
-    document.getElementById('resumePlace').textContent=`Place ${pos.place+1}${pos.total?` of ${pos.total}`:''}`;
-    resumeLink.href=positionHref(pos);
-    resumeLink.hidden=false;
-    resumeCard.hidden=false;
-  }else{
-    title.textContent='Welcome.';
-    lead.textContent='You can keep this book on this device and let it remember exactly where you stop, or visit without installing anything.';
-    resumeCard.hidden=true;
-  }
-}
+function renderEntrance(){const pos=readPosition(),standalone=isStandalone(),title=document.getElementById('gateTitle'),lead=document.getElementById('gateLead'),resumeLink=document.getElementById('resumeLink');episodePanel.hidden=true;installNote.hidden=true;if(standalone){title.textContent='Welcome back.';lead.textContent=pos?'Continue exactly where you stopped, choose an episode, or begin again.':'Choose an episode, or begin again from the introduction.';firstChoices.hidden=true;firstChoices.style.display='none';resumeCard.hidden=false;if(pos){document.getElementById('resumeTitle').textContent=pos.episode?`Episode ${pos.episode} — ${pos.title}`:(pos.title||'Saved place');document.getElementById('resumePlace').textContent=`Place ${pos.place+1}${pos.total?` of ${pos.total}`:''}`;resumeLink.href=positionHref(pos);resumeLink.hidden=false}else{document.getElementById('resumeTitle').textContent='The book is ready.';document.getElementById('resumePlace').textContent='No saved reading place yet.';resumeLink.hidden=true}return}firstChoices.hidden=false;firstChoices.style.display='';if(pos){title.textContent='You have a place here.';lead.textContent='This browser remembers where you stopped. You can continue, or choose another way in.';document.getElementById('resumeTitle').textContent=pos.episode?`Episode ${pos.episode} — ${pos.title}`:(pos.title||'Saved place');document.getElementById('resumePlace').textContent=`Place ${pos.place+1}${pos.total?` of ${pos.total}`:''}`;resumeLink.href=positionHref(pos);resumeLink.hidden=false;resumeCard.hidden=false}else{title.textContent='Welcome.';lead.textContent='You can keep this book on this device and let it remember exactly where you stop, or visit without installing anything.';resumeCard.hidden=true}}
 function showEpisodes(){episodePanel.hidden=false;episodePanel.scrollIntoView({behavior:'smooth',block:'start'})}function enterIntroduction(){gate.hidden=true;deck.scrollLeft=0;updateIndex()}function resetReading(){try{localStorage.removeItem(POSITION_KEY);localStorage.removeItem(LEGACY_KEY)}catch(_){}resumeCard.hidden=true;enterIntroduction()}function updateIndex(){index=Math.max(0,Math.min(slides.length-1,Math.round(deck.scrollLeft/Math.max(1,deck.clientWidth))));progress.innerHTML=`<span class="live">${index+1}</span> / ${slides.length}`}
 document.getElementById('visitBook').addEventListener('click',showEpisodes);document.getElementById('showEpisodesFromResume').addEventListener('click',showEpisodes);document.getElementById('episodesButton').addEventListener('click',()=>{gate.hidden=false;renderEntrance();showEpisodes()});document.getElementById('startIntroduction').addEventListener('click',enterIntroduction);document.getElementById('beginAgain').addEventListener('click',resetReading);
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredInstall=event});window.addEventListener('appinstalled',()=>{installNote.hidden=false;installNote.textContent='The book is now on this device. Your place will be remembered automatically.'});document.getElementById('keepBook').addEventListener('click',async()=>{if(isStandalone()){renderEntrance();return}if(deferredInstall){deferredInstall.prompt();const result=await deferredInstall.userChoice;deferredInstall=null;if(result.outcome==='accepted'){installNote.hidden=false;installNote.textContent='Installed. Open it from your home screen or app list; your reading place will follow you on this device.';showEpisodes();return}}installNote.hidden=false;installNote.textContent=/iPhone|iPad|iPod/i.test(navigator.userAgent)?'On iPhone or iPad, use Share → Add to Home Screen. Then open the saved book from your Home Screen.':'Use your browser’s Install app or Add to Home Screen command. You can also continue here as a visitor.';showEpisodes()});
@@ -96,6 +65,6 @@ deck.addEventListener('scroll',()=>requestAnimationFrame(updateIndex),{passive:t
 const shareButton=document.getElementById('shareButton'),shareStatus=document.getElementById('shareStatus'),canonical='https://titanicparker.github.io/very-own-repo/';shareButton.addEventListener('click',async()=>{shareStatus.textContent='';const data={title:'Meaning Is Not Everything',text:'You are reading for meaning. This book is written to intelligibility.',url:canonical};try{if(navigator.share){await navigator.share(data);return}await navigator.clipboard.writeText(canonical);shareStatus.textContent='Copied'}catch(err){if(err&&err.name==='AbortError')return}});
 if('serviceWorker'in navigator)navigator.serviceWorker.register('service-worker.js').catch(()=>{});renderEntrance();updateIndex();
 </script>
-<script src="assets/reader-marker.js?v=20260903i"></script>
+<script src="assets/reader-marker.js?v=20260903j"></script>
 </body>
 </html>
