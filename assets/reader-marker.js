@@ -47,7 +47,11 @@
     '021-the-map-outgrew-the-sentence.html': { episode: 21, title: 'The Map Outgrew the Sentence' },
     '022-whose-subject-is-this.html': { episode: 22, title: 'Whose Subject Is This?' },
     '023-what-would-make-us-wrong.html': { episode: 23, title: 'What Would Make Us Wrong?' },
-    '024-confession-of-a-gpt.html': { episode: 24, title: 'Confession of a GPT' }
+    '024-confession-of-a-gpt.html': { episode: 24, title: 'Confession of a GPT' },
+    '025-a-sentence-hangs-together.html': { episode: 25, title: 'A Sentence Hangs Together' },
+    '026-the-island-comes-second.html': { episode: 26, title: 'The Island Comes Second' },
+    '027-whose-demand.html': { episode: 27, title: 'Whose Demand?' },
+    '028-the-shape-of-hanging-together.html': { episode: 28, title: 'The Shape of Hanging Together' }
   };
   const knownNext = {
     '001-meaning-is-not-everything.html': '002-enough-is-a-shape.html',
@@ -72,7 +76,11 @@
     '020-before-the-example-exists.html': '021-the-map-outgrew-the-sentence.html',
     '021-the-map-outgrew-the-sentence.html': '022-whose-subject-is-this.html',
     '022-whose-subject-is-this.html': '023-what-would-make-us-wrong.html',
-    '023-what-would-make-us-wrong.html': '024-confession-of-a-gpt.html'
+    '023-what-would-make-us-wrong.html': '024-confession-of-a-gpt.html',
+    '024-confession-of-a-gpt.html': '025-a-sentence-hangs-together.html',
+    '025-a-sentence-hangs-together.html': '026-the-island-comes-second.html',
+    '026-the-island-comes-second.html': '027-whose-demand.html',
+    '027-whose-demand.html': '028-the-shape-of-hanging-together.html'
   };
   const meta = episodes[currentFile] || { episode: 0, title: 'Introduction' };
   const nextHref = isHome ? 'posts/001-meaning-is-not-everything.html' : (knownNext[currentFile] || null);
