@@ -29,13 +29,24 @@ A serial book about the small structures through which meaning becomes clear eno
 22. [Whose Subject Is This?](posts/022-whose-subject-is-this.html)
 23. [What Would Make Us Wrong?](posts/023-what-would-make-us-wrong.html)
 24. [Confession of a GPT](posts/024-confession-of-a-gpt.html)
+25. [A Sentence Hangs Together](posts/025-a-sentence-hangs-together.html)
+26. [The Island Comes Second](posts/026-the-island-comes-second.html)
+27. [Whose Demand?](posts/027-whose-demand.html)
+28. [The Shape of Hanging Together](posts/028-the-shape-of-hanging-together.html)
 
 The entrance offers two ways to read: keep the reader on this device with automatic place memory, or visit without installing and jump directly to any episode.
 
-Episode 24 is the latest episode.
+Episode 28 is the latest episode.
 
 ## Reference
 
 - [Appendix — The Fifteen Core Definitions](appendix.html) — the exact reference sheet for the formal vocabulary.
 - [Testing Field](testing/) — optional material behind Episode Five: 27 fairy tales and 615 mathematical examples.
 - [Testing Field source](TESTING_FIELD.md) — the preserved source material for readers who want to inspect it directly.
+
+## Related project fields
+
+- [Persistence](https://github.com/TitanicParker/persistence) — the deep theory/reference field: monograph, atlas, glossary, historical development, disciplinary positioning, and extended expositions of the 54.
+- [Perpetual Essays](https://github.com/TitanicParker/perpetual-essays) — the exploratory essay field where the theory is pushed into proof, language, institutions, shared reality, and other world-facing consequences.
+
+Very Own Repo is the public serial reading path. Persistence supplies depth; Perpetual Essays supplies breadth and exploratory consequence.
